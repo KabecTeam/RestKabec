@@ -13,7 +13,7 @@ public class Bancos {
 
 	@Id
 	@Column(name="idBanco",unique=true,nullable=false)
-	//@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int idBanco;
 	@Column(name="nombreBanco",nullable=false,length=80)
 	private String nombreBanco;

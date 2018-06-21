@@ -33,15 +33,22 @@ public class ControllerBancos {
 	return new ResponseEntity(listBancos,HttpStatus.OK);
 	}
 	
-   @RequestMapping(value="/findAllBancos",method=RequestMethod.GET)
-	public ResponseEntity<Bancos> findByIdBancos(@RequestParam(name="idBancos")int id){
+   @RequestMapping(value="/findIdBancos/{idBanco}",method=RequestMethod.GET)
+	public ResponseEntity<Bancos> findByIdBancos(@PathVariable("idBanco") Integer id){
 		Bancos bancos=catalogoService.findByIdBanco(id);
-		return new ResponseEntity(bancos,HttpStatus.OK);
+		if(bancos==null){
+			System.out.println("El id Banco no existe:");	
+			return new ResponseEntity<Bancos>(bancos,HttpStatus.NOT_FOUND);
+		}
+		catalogoService.findByIdBanco(id);
+		return new ResponseEntity(bancos,HttpStatus.NO_CONTENT);
 	}
 	@RequestMapping(value="/addBancos",method=RequestMethod.POST)
 	public ResponseEntity<Bancos> addBancos(@Valid @RequestBody Bancos bancos){
 		Bancos bancoadd=catalogoService.addByBanco(bancos);
+		System.out.println("Se inserto el banco:"+bancoadd.getNombreBanco());
 		return new ResponseEntity(bancoadd,HttpStatus.CREATED);
+		
 	}
 	@RequestMapping(value="/deleteBancos/{id}",method=RequestMethod.DELETE)
 	public ResponseEntity<Bancos> deleteBancos(@PathVariable("id")int id){
