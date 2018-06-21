@@ -1,5 +1,8 @@
 package com.apirest.rest.entity;
 
+<<<<<<< HEAD:src/main/java/com/apirest/rest/entity/ReportedeAsignados.java
+public class ReportedeAsignados {
+=======
 import java.util.HashSet;
 import java.util.Set;
 
@@ -17,6 +20,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="area")
 public class Area {
+>>>>>>> 526985f72e556d499e62526f54f34e0456ec364c:src/main/java/com/apirest/rest/entity/Area.java
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
