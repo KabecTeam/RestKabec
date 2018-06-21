@@ -19,13 +19,12 @@ public class QueryDSLRegistroAsigRepo {
 	@PersistenceContext
 	private EntityManager em;
 	
-	public void find(){
+	public RegistroAsignacion find(){
 		JPAQuery<RegistroAsignacion> query=new JPAQuery<RegistroAsignacion>(em);
 		
-	RegistroAsignacion	registro1=query.select(qRegistro).from(qRegistro).where(qRegistro.ubicacionConsultor.eq("Interno")).fetchOne();
+	RegistroAsignacion	registro1=(RegistroAsignacion) query.select(qRegistro.Anexo,qRegistro.fechaFinAnexoAsignacion).from(qRegistro).where(qRegistro.ubicacionConsultor.eq("Interno")).fetchOne();
 
 	//List<RegistroAsignacion> registro2=query.select(qRegistro).from(qRegistro).where(qRegistro.persona.between(10, 50));
+	return registro1;
 	}
-	
-	
 }
