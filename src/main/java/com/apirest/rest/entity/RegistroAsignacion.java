@@ -11,13 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.udemy.backend.entity.Area;
-import com.udemy.backend.entity.Cliente;
-import com.udemy.backend.entity.GerenteComercial;
-import com.udemy.backend.entity.GerentesArea;
-import com.udemy.backend.entity.LideresConsultor;
-import com.udemy.backend.entity.Perfil;
-import com.udemy.backend.entity.Personas;
+
 
 @Entity
 @Table(name="registroAsignacion")
@@ -42,7 +36,7 @@ public class RegistroAsignacion {
 	
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="idArea",nullable=false)
-	private Area area;
+	private Areaa area;
 	
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="idGerente",nullable=false)
@@ -58,7 +52,7 @@ public class RegistroAsignacion {
 	
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="idpersona",nullable=false)
-	private Personas persona;
+	private Persona persona;
 	
 	@Column(name="ubicacionConsultor",nullable=false)
 	private String ubicacionConsultor;
@@ -94,8 +88,8 @@ public class RegistroAsignacion {
 		
 	}
 	
-	public RegistroAsignacion(Cliente cliente, Perfil perfil, Area area, GerentesArea gerentesArea,
-			LideresConsultor lider, GerenteComercial gerenteComercial, Personas persona, String ubicacionConsultor,
+	public RegistroAsignacion(Cliente cliente, Perfil perfil, Areaa area, GerentesArea gerentesArea,
+			LideresConsultor lider, GerenteComercial gerenteComercial, Persona persona, String ubicacionConsultor,
 			Date fechaInicioAsignacion, Date fechaFinAsignacion, Date fechaInicioAnexoAsignacion,
 			Date fechaFinAnexoAsignacion, Date fechaInicioAnexoFacturacion, Date fechaFinAnexoFacturacion,
 			String horario, String propuestaEconomica, String anexo) {
@@ -118,8 +112,8 @@ public class RegistroAsignacion {
 		this.propuestaEconomica = propuestaEconomica;
 		Anexo = anexo;
 	}
-	public RegistroAsignacion(Integer idRegistroAsignacion, Cliente cliente, Perfil perfil, Area area,
-			GerentesArea gerentesArea, LideresConsultor lider, GerenteComercial gerenteComercial, Personas persona,
+	public RegistroAsignacion(Integer idRegistroAsignacion, Cliente cliente, Perfil perfil, Areaa area,
+			GerentesArea gerentesArea, LideresConsultor lider, GerenteComercial gerenteComercial, Persona persona,
 			String ubicacionConsultor, Date fechaInicioAsignacion, Date fechaFinAsignacion,
 			Date fechaInicioAnexoAsignacion, Date fechaFinAnexoAsignacion, Date fechaInicioAnexoFacturacion,
 			Date fechaFinAnexoFacturacion, String horario, String propuestaEconomica, String anexo) {
@@ -168,11 +162,11 @@ public class RegistroAsignacion {
 		this.perfil = perfil;
 	}
 
-	public Area getArea() {
+	public Areaa getArea() {
 		return area;
 	}
 
-	public void setArea(Area area) {
+	public void setArea(Areaa area) {
 		this.area = area;
 	}
 
@@ -200,11 +194,11 @@ public class RegistroAsignacion {
 		this.gerenteComercial = gerenteComercial;
 	}
 
-	public Personas getPersona() {
+	public Persona getPersona() {
 		return persona;
 	}
 
-	public void setPersona(Personas persona) {
+	public void setPersona(Persona persona) {
 		this.persona = persona;
 	}
 

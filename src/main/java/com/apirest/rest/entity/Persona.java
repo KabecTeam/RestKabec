@@ -16,17 +16,17 @@ import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import com.udemy.backend.entity.Bancos;
-import com.udemy.backend.entity.Certificaciones;
-import com.udemy.backend.entity.ConsultorExpediente;
-import com.udemy.backend.entity.ConsultoresEmpresaKabec;
-import com.udemy.backend.entity.Domicilio;
-import com.udemy.backend.entity.Escolaridad;
-import com.udemy.backend.entity.EstadoCivil;
-import com.udemy.backend.entity.Genero;
-import com.udemy.backend.entity.RefPersonales;
-import com.udemy.backend.entity.RegistroAsignacion;
-import com.udemy.backend.entity.RegistroContrato;
+import com.apirest.rest.entity.Bancos;
+import com.apirest.rest.entity.Certificaciones;
+import com.apirest.rest.entity.ConsultorExpediente;
+import com.apirest.rest.entity.ConsultoresEmpresaKabec;
+import com.apirest.rest.entity.Domicilio;
+import com.apirest.rest.entity.Escolaridad;
+import com.apirest.rest.entity.EstadoCivil;
+import com.apirest.rest.entity.Genero;
+import com.apirest.rest.entity.RefPersonales;
+import com.apirest.rest.entity.RegistroAsignacion;
+import com.apirest.rest.entity.RegistroContrato;
 
 
 @Entity
@@ -137,12 +137,12 @@ public class Persona {
 	private Set<Certificaciones> certificaciones=new HashSet<Certificaciones>();
 
 
-	public Personas(){
+	public Persona(){
 		
 	}
 
 
-	public Personas(int idpersona, String nombre, String apellidoPaterno, String apellidoMaterno, String fechaNacimiento,
+	public Persona(int idpersona, String nombre, String apellidoPaterno, String apellidoMaterno, String fechaNacimiento,
 			String rfc, String curp, String correo, Integer edad, String telparticular, String telCelular, BigInteger numSS,
 			BigInteger credInf, BigInteger creFonacot, BigInteger claveInter, Boolean pension) {
 		super();
@@ -164,7 +164,7 @@ public class Persona {
 		this.pension = pension;
 	}
 
-	public Personas(int idpersona, String nombre, String apellidoPaterno, String apellidoMaterno, String fechaNacimiento,
+	public Persona(int idpersona, String nombre, String apellidoPaterno, String apellidoMaterno, String fechaNacimiento,
 			String rfc, String curp, String correo, Integer edad, String telparticular, String telCelular, BigInteger numSS,
 			BigInteger credInf, BigInteger creFonacot, BigInteger claveInter, Boolean pension, Bancos bancos, Genero genero,
 			EstadoCivil estadocivil, Set<ConsultoresEmpresaKabec> consultoresEmpresaKabec, Set<Escolaridad> escolaridad,

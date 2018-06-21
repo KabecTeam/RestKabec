@@ -1,5 +1,6 @@
 package com.apirest.rest.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,18 +30,20 @@ public class ControlerAsig {
 	private AsignacionServiceImpl asignacionServiceImpl;
 	
 	@RequestMapping(value="/repPerAsig", method=RequestMethod.GET )
-	public ResponseEntity<Persona> showClientes(){
+	public ResponseEntity<RegistroAsignacion> showClientes(){
 		List<RegistroAsignacion> lAsig= asignacionServiceImpl.ShowAsig();
-		List<Persona> persona= new ArrayList<Persona>();
-		for(RegistroAsignacion asignado :lAsig){
+		return new ResponseEntity(lAsig, HttpStatus.OK);
+		//List<Persona> persona1= new ArrayList<Persona>();
+		
+		/*for(RegistroAsignacion asignado :lAsig){
 			
 			if(null!=asignado.getCliente()){
-				
+				System.out.println("ok");
 				persona.add(asignado.getPersona());
 				
 			}
-		}
-		return new ResponseEntity(lClientes, HttpStatus.OK);
+		}*/
+		
 	}
 
 }

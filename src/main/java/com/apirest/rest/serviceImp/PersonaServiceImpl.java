@@ -6,8 +6,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
-
-import com.apirest.rest.entity.Cliente;
 import com.apirest.rest.entity.Persona;
 import com.apirest.rest.repository.PersonaRepository;
 import com.apirest.rest.service.PersonaService;
