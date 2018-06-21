@@ -3,6 +3,7 @@ package com.apirest.rest.service;
 import java.util.List;
 
 import com.apirest.rest.entity.Bancos;
+import com.apirest.rest.entity.Cliente;
 import com.apirest.rest.entity.ContratoNomina;
 import com.apirest.rest.entity.EmpresaComplemento;
 
@@ -49,5 +50,8 @@ public interface CatalogoService {
 	public boolean isEmpreCompleExist(EmpresaComplemento empresaComplemento);
 	
 	public abstract EmpresaComplemento updateEmprComplem(EmpresaComplemento empresaComplemento);
+	
+
+	
 	
 }

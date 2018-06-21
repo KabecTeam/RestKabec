@@ -33,7 +33,7 @@ public class ControllerBancos {
 	return new ResponseEntity(listBancos,HttpStatus.OK);
 	}
 	
-   @RequestMapping(value="/findAllBancos",method=RequestMethod.GET)
+   @RequestMapping(value="/findAllBancos/{id}",method=RequestMethod.GET)
 	public ResponseEntity<Bancos> findByIdBancos(@RequestParam(name="idBancos")int id){
 		Bancos bancos=catalogoService.findByIdBanco(id);
 		return new ResponseEntity(bancos,HttpStatus.OK);

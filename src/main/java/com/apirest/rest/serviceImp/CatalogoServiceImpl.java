@@ -45,7 +45,7 @@ public class CatalogoServiceImpl implements CatalogoService{
 
 	@Override
 	public Bancos addByBanco(Bancos banco) {
-		return bancosRepository.save(banco);
+		return bancosRepository.saveAndFlush(banco);
 	}
 
 	@Override
