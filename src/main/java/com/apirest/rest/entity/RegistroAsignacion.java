@@ -11,6 +11,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 
 
 @Entity
@@ -24,63 +30,80 @@ public class RegistroAsignacion {
 	@Column(name="idRegistroAsignacion",nullable=false)
 	private Integer idRegistroAsignacion;
 	
-
+	@JsonProperty("idCliente")
+	@JsonIdentityInfo(generator= ObjectIdGenerators.PropertyGenerator.class,property = "idCliente")
+	@JsonIdentityReference(alwaysAsId=true)
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="idCliente",nullable=false)
 	private Cliente cliente;
 	
-
+	@JsonIgnore
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="idPerfil",nullable=false)
 	private Perfil perfil;
 	
+	@JsonIgnore
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="idArea",nullable=false)
 	private Areaa area;
 	
+	@JsonIgnore
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="idGerente",nullable=false)
 	private GerentesArea gerentesArea;
 	
+	@JsonIgnore
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="idLider",nullable=false)
 	private LideresConsultor lider;
 
+	@JsonIgnore
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="idGerenteComercial",nullable=false)
 	private GerenteComercial gerenteComercial;
 	
+
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="idpersona",nullable=false)
 	private Persona persona;
 	
+	@JsonIgnore
 	@Column(name="ubicacionConsultor",nullable=false)
 	private String ubicacionConsultor;
 	
+	@JsonIgnore
 	@Column(name="fechaInicioAsignacion",nullable=false)
 	private Date fechaInicioAsignacion;
 	
+	@JsonIgnore
 	@Column(name="fechaFinAsignacion",nullable=false)
 	private Date fechaFinAsignacion;
 	
+	@JsonIgnore
 	@Column(name="fechaInicioAnexoAsignacion",nullable=false)
 	private Date fechaInicioAnexoAsignacion;
 	
+	@JsonIgnore
 	@Column(name="fechaFinAnexoAsignacion",nullable=false)
 	private Date fechaFinAnexoAsignacion;
 	
+	@JsonIgnore
 	@Column(name="fechaInicioAnexoFacturacion",nullable=false)
 	private Date fechaInicioAnexoFacturacion;
 	
+	@JsonIgnore
 	@Column(name="fechaFinAnexoFacturacion",nullable=false)
 	private Date fechaFinAnexoFacturacion;
 	
+	@JsonIgnore
 	@Column(name="horario",nullable=true)
 	private String horario;
 	
+	@JsonIgnore
 	@Column(name="propuestaEconomica",nullable=false)
 	private String propuestaEconomica;
 	
+	@JsonIgnore
 	@Column(name="Anexo",nullable=false)
 	private String Anexo; 
 	

@@ -3,6 +3,7 @@ package com.apirest.rest.service;
 import java.util.List;
 
 import com.apirest.rest.entity.Areaa;
+import com.apirest.rest.entity.MyCliente;
 
 
 
@@ -12,7 +13,7 @@ public interface AreaaService {
 	
 	public Boolean deleteArea(int id);
 	
-	public abstract Areaa findArea(int id);
+	public abstract Areaa findArea(Integer id);
 	
 	public abstract Areaa updateArea(Areaa areaU);
 	

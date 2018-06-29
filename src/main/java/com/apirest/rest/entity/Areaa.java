@@ -12,12 +12,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
+import com.apirest.rest.entity.Cliente;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.ObjectIdGenerator;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 
@@ -36,7 +35,7 @@ public class Areaa {
 
 	
 	@JsonProperty("idCliente")
-	@JsonIdentityInfo(generator= ObjectIdGenerators.PropertyGenerator.class,property = "idCliente")
+	@JsonIdentityInfo(generator= ObjectIdGenerators.StringIdGenerator.class,property = "idCliente", resolver = Manager.class)
 	@JsonIdentityReference(alwaysAsId=true)
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "idCliente", nullable = false)

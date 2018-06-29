@@ -6,7 +6,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+
 import com.apirest.rest.entity.Areaa;
+import com.apirest.rest.entity.MyCliente;
 import com.apirest.rest.repository.AreaRepository;
 import com.apirest.rest.service.AreaaService;
 @Service("areaServiceImpl")
@@ -18,7 +20,7 @@ public class AreaaServiceImpl implements AreaaService{
 
 	@Override
 	public Areaa addArea(Areaa area) {
-		return areaRepository.save(area);
+		return areaRepository.saveAndFlush(area);
 	}
 
 	@Override
@@ -34,7 +36,7 @@ public class AreaaServiceImpl implements AreaaService{
 	}
 
 	@Override
-	public Areaa findArea(int id) {
+	public Areaa findArea(Integer id) {
 		return areaRepository.getOne(id);
 	}
 

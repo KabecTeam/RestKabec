@@ -27,6 +27,11 @@ import com.apirest.rest.entity.Genero;
 import com.apirest.rest.entity.RefPersonales;
 import com.apirest.rest.entity.RegistroAsignacion;
 import com.apirest.rest.entity.RegistroContrato;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 
 @Entity
@@ -99,40 +104,63 @@ public class Persona {
 	@Column(name="pension")
 	private Boolean pension;
 
+	@JsonProperty("nombreBanco")
+	@JsonIdentityInfo(generator= ObjectIdGenerators.PropertyGenerator.class,property = "nombreBanco")
+	@JsonIdentityReference(alwaysAsId=true)
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="bancos",nullable=false)
 	private Bancos bancos;
 
+	@JsonProperty("tipoGenero")
+	@JsonIdentityInfo(generator= ObjectIdGenerators.PropertyGenerator.class,property = "tipoGenero")
+	@JsonIdentityReference(alwaysAsId=true)
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="idgenero",nullable=false)
 	private Genero genero;
 
-
+	
+	@JsonProperty("descripcion")
+	@JsonIdentityInfo(generator= ObjectIdGenerators.PropertyGenerator.class,property = "descripcion")
+	@JsonIdentityReference(alwaysAsId=true)
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="idEstadoCivil",nullable=false)
 	private EstadoCivil estadocivil;
 
+	@JsonIgnore
 	@OneToMany(fetch=FetchType.EAGER,mappedBy="personas")
 	private Set<ConsultoresEmpresaKabec> consultoresEmpresaKabec=new HashSet<ConsultoresEmpresaKabec>();
 
+	@JsonProperty("escuelaProc")
+	@JsonIdentityInfo(generator= ObjectIdGenerators.PropertyGenerator.class,property = "escuelaProc")
+	@JsonIdentityReference(alwaysAsId=true)
 	@OneToMany(fetch=FetchType.EAGER,mappedBy="personas")
 	private Set<Escolaridad> escolaridad=new HashSet<Escolaridad>();
 
+	@JsonProperty("delegacion")
+	@JsonIdentityInfo(generator= ObjectIdGenerators.PropertyGenerator.class,property = "delegacion")
+	@JsonIdentityReference(alwaysAsId=true)
 	@OneToMany(fetch=FetchType.EAGER,mappedBy="personas")
 	private Set<Domicilio> domicilio=new HashSet<>();
 
+	@JsonIgnore
 	@OneToMany(fetch=FetchType.EAGER,mappedBy="personas")
 	private Set<RefPersonales> refPersonales=new HashSet<RefPersonales>();
 
+	@JsonIgnore
 	@OneToMany(fetch=FetchType.EAGER,mappedBy="personas")
 	private Set<ConsultorExpediente> datosFamiliares=new HashSet<ConsultorExpediente>();
 
+	@JsonProperty("idCliente")
+	@JsonIdentityInfo(generator= ObjectIdGenerators.PropertyGenerator.class,property = "idCliente")
+	@JsonIdentityReference(alwaysAsId=true)
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "persona")
 	private Set<RegistroAsignacion> registroAsignacion = new HashSet<RegistroAsignacion>();
 
+	@JsonIgnore
 	@OneToMany(fetch=FetchType.EAGER,mappedBy="personas")
 	private Set<RegistroContrato> registroContrato=new HashSet<RegistroContrato>();
 
+	@JsonIgnore
 	@OneToMany(fetch=FetchType.EAGER,mappedBy="personas")
 	private Set<Certificaciones> certificaciones=new HashSet<Certificaciones>();
 
