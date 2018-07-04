@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.apirest.rest.entity.Areaa;
+import com.apirest.rest.entity.Cliente;
 import com.apirest.rest.serviceImp.AreaaServiceImpl;
 import com.apirest.rest.serviceImp.ClienteServiceImpl;
 
@@ -30,12 +31,14 @@ public class AreaController {
 	@Autowired
 	@Qualifier("clienteServiceImpl")
 	private ClienteServiceImpl clienteServiceImpl;
-/*
+
 	@RequestMapping(value="/addArea", method=RequestMethod.POST )
 	public ResponseEntity<Areaa> addArea(@Valid @RequestBody Areaa area){
-		Integer id=area.getCliente();
-		System.out.println("Id es:"+id);
-		Cliente cliente= clienteServiceImpl.findCliente(id);
+		
+		Cliente id=area.getCliente();
+		int idClie=id.getIdCliente();
+		System.out.println("Id es:"+idClie);
+		Cliente cliente= clienteServiceImpl.findCliente(idClie);
 		
 		if(null!=cliente){
 			Areaa addArea = areaServiceImpl.addArea(area);
@@ -47,7 +50,7 @@ public class AreaController {
 		}
 		
 	}
-*/	
+	
 	@RequestMapping(value="/delArea", method=RequestMethod.DELETE )
 	public ResponseEntity<Boolean> delArea(@RequestParam(name="idArea")  int id){
 		Boolean respuesta=areaServiceImpl.deleteArea(id);

@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.apirest.rest.entity.Areaa;
-import com.apirest.rest.entity.MyCliente;
 import com.apirest.rest.repository.AreaRepository;
 import com.apirest.rest.service.AreaaService;
 @Service("areaServiceImpl")
@@ -20,7 +19,7 @@ public class AreaaServiceImpl implements AreaaService{
 
 	@Override
 	public Areaa addArea(Areaa area) {
-		return areaRepository.saveAndFlush(area);
+		return areaRepository.save(area);
 	}
 
 	@Override

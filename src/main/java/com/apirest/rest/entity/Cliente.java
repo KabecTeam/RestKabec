@@ -11,10 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.apirest.rest.entity.RegistroAsignacion;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.apirest.rest.entity.Areaa;
-
 
 @Entity
 @Table(name="cliente")
@@ -30,15 +26,17 @@ public class Cliente {
 	@Column(name="nombreCliente", nullable=false, length=50)
 	private String nombreCliente;
 	
-	@JsonIgnore
 	@OneToMany(fetch=FetchType.EAGER,mappedBy="cliente")
-	private Set<Areaa> area=new HashSet<Areaa>(); 
+	private Set<Area> area=new HashSet<Area>(); 
 	
-	@JsonIgnore
 	@OneToMany(fetch=FetchType.EAGER,mappedBy="cliente")
 	private Set<RegistroAsignacion> registroAsignacion=new HashSet<RegistroAsignacion>(); 
 	
-	@JsonIgnore
+    @OneToMany(fetch=FetchType.EAGER,mappedBy="cliente")
+	private Set<Anexo> anexo=new HashSet<Anexo>();
+    
+  
+	
 	public Set<RegistroAsignacion> getRegistroAsignacion() {
 		return registroAsignacion;
 	}
@@ -54,7 +52,7 @@ public class Cliente {
 	}
 	
 	
-	public Cliente(Integer idCliente, String nombreCliente, Set<Areaa> area) {
+	public Cliente(Integer idCliente, String nombreCliente, Set<Area> area) {
 		super();
 		this.idCliente = idCliente;
 		this.nombreCliente = nombreCliente;
@@ -77,11 +75,11 @@ public class Cliente {
 	public void setNombreCliente(String nombreCliente) {
 		this.nombreCliente = nombreCliente;
 	}
-	public Set<Areaa> getArea() {
+	public Set<Area> getArea() {
 		return area;
 	}
 
-	public void setArea(Set<Areaa> area) {
+	public void setArea(Set<Area> area) {
 		this.area = area;
 	}
 

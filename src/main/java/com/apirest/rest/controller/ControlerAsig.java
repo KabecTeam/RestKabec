@@ -35,9 +35,6 @@ public class ControlerAsig {
 		List<RegistroAsignacion> lAsig= asignacionServiceImpl.ShowAsig();
 		List<Persona> persona1= new ArrayList<Persona>();
 		
-		
-		
-		
 		for(RegistroAsignacion asignado :lAsig){
 			
 		int fechaFinAsignacion= Integer.parseInt(new SimpleDateFormat("yyyyMMdd").format(asignado.getFechaFinAsignacion().getTime()).toString());

@@ -1,5 +1,6 @@
 package com.apirest.rest.entity;
 
+
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -10,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
@@ -17,13 +20,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
-
-
 @Entity
 @Table(name="registroAsignacion")
 public class RegistroAsignacion {
-
-	
 
 	@Id
 	@GeneratedValue
@@ -31,115 +30,104 @@ public class RegistroAsignacion {
 	private Integer idRegistroAsignacion;
 	
 	@JsonProperty("idCliente")
-	@JsonIdentityInfo(generator= ObjectIdGenerators.PropertyGenerator.class,property = "idCliente")
-	@JsonIdentityReference(alwaysAsId=true)
+	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "nombreCliente")
+    @JsonIdentityReference(alwaysAsId = true)
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="idCliente",nullable=false)
 	private Cliente cliente;
+
 	
-	@JsonIgnore
-	@ManyToOne(fetch=FetchType.EAGER)
+	@JsonProperty("idPerfil")
+	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "tipoPerfil")
+    @JsonIdentityReference(alwaysAsId = true)@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="idPerfil",nullable=false)
 	private Perfil perfil;
 	
-	@JsonIgnore
+	@JsonProperty("idArea")
+	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "nombreArea")
+    @JsonIdentityReference(alwaysAsId = true)
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="idArea",nullable=false)
-	private Areaa area;
+	private Area area;
 	
-	@JsonIgnore
+	@JsonProperty("idGerente")
+	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "nombre")
+    @JsonIdentityReference(alwaysAsId = true)
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="idGerente",nullable=false)
 	private GerentesArea gerentesArea;
 	
-	@JsonIgnore
+	@JsonProperty("idLider")
+	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "nombre")
+    @JsonIdentityReference(alwaysAsId = true)
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="idLider",nullable=false)
 	private LideresConsultor lider;
-
-	@JsonIgnore
+	
+	@JsonProperty("idGerenteComercial")
+	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "nombre")
+    @JsonIdentityReference(alwaysAsId = true)
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="idGerenteComercial",nullable=false)
 	private GerenteComercial gerenteComercial;
 	
-
+	@JsonProperty("idpersona")
+	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "nombre")
+    @JsonIdentityReference(alwaysAsId = true)
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="idpersona",nullable=false)
-	private Persona persona;
+	private Personas persona;
 	
-	@JsonIgnore
 	@Column(name="ubicacionConsultor",nullable=false)
 	private String ubicacionConsultor;
 	
-	@JsonIgnore
+	
 	@Column(name="fechaInicioAsignacion",nullable=false)
+	@Temporal(TemporalType.DATE)
 	private Date fechaInicioAsignacion;
 	
-	@JsonIgnore
 	@Column(name="fechaFinAsignacion",nullable=false)
+	@Temporal(TemporalType.DATE)
 	private Date fechaFinAsignacion;
 	
-	@JsonIgnore
 	@Column(name="fechaInicioAnexoAsignacion",nullable=false)
+	@Temporal(TemporalType.DATE)
 	private Date fechaInicioAnexoAsignacion;
 	
-	@JsonIgnore
 	@Column(name="fechaFinAnexoAsignacion",nullable=false)
+	@Temporal(TemporalType.DATE)
 	private Date fechaFinAnexoAsignacion;
 	
-	@JsonIgnore
 	@Column(name="fechaInicioAnexoFacturacion",nullable=false)
+	@Temporal(TemporalType.DATE)
 	private Date fechaInicioAnexoFacturacion;
 	
-	@JsonIgnore
 	@Column(name="fechaFinAnexoFacturacion",nullable=false)
+	@Temporal(TemporalType.DATE)
 	private Date fechaFinAnexoFacturacion;
 	
-	@JsonIgnore
 	@Column(name="horario",nullable=true)
 	private String horario;
 	
-	@JsonIgnore
 	@Column(name="propuestaEconomica",nullable=false)
 	private String propuestaEconomica;
+		
 	
-	@JsonIgnore
-	@Column(name="Anexo",nullable=false)
-	private String Anexo; 
+	@ManyToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="idAnexo",nullable=false)
+	private Anexo anexo;
+	
 	
 	public RegistroAsignacion(){
 		
 	}
 	
-	public RegistroAsignacion(Cliente cliente, Perfil perfil, Areaa area, GerentesArea gerentesArea,
-			LideresConsultor lider, GerenteComercial gerenteComercial, Persona persona, String ubicacionConsultor,
-			Date fechaInicioAsignacion, Date fechaFinAsignacion, Date fechaInicioAnexoAsignacion,
-			Date fechaFinAnexoAsignacion, Date fechaInicioAnexoFacturacion, Date fechaFinAnexoFacturacion,
-			String horario, String propuestaEconomica, String anexo) {
-		super();
-		this.cliente = cliente;
-		this.perfil = perfil;
-		this.area = area;
-		this.gerentesArea = gerentesArea;
-		this.lider = lider;
-		this.gerenteComercial = gerenteComercial;
-		this.persona = persona;
-		this.ubicacionConsultor = ubicacionConsultor;
-		this.fechaInicioAsignacion = fechaInicioAsignacion;
-		this.fechaFinAsignacion = fechaFinAsignacion;
-		this.fechaInicioAnexoAsignacion = fechaInicioAnexoAsignacion;
-		this.fechaFinAnexoAsignacion = fechaFinAnexoAsignacion;
-		this.fechaInicioAnexoFacturacion = fechaInicioAnexoFacturacion;
-		this.fechaFinAnexoFacturacion = fechaFinAnexoFacturacion;
-		this.horario = horario;
-		this.propuestaEconomica = propuestaEconomica;
-		Anexo = anexo;
-	}
-	public RegistroAsignacion(Integer idRegistroAsignacion, Cliente cliente, Perfil perfil, Areaa area,
-			GerentesArea gerentesArea, LideresConsultor lider, GerenteComercial gerenteComercial, Persona persona,
+	
+	public RegistroAsignacion(Integer idRegistroAsignacion, Cliente cliente, Perfil perfil, Area area,
+			GerentesArea gerentesArea, LideresConsultor lider, GerenteComercial gerenteComercial, Personas persona,
 			String ubicacionConsultor, Date fechaInicioAsignacion, Date fechaFinAsignacion,
 			Date fechaInicioAnexoAsignacion, Date fechaFinAnexoAsignacion, Date fechaInicioAnexoFacturacion,
-			Date fechaFinAnexoFacturacion, String horario, String propuestaEconomica, String anexo) {
+			Date fechaFinAnexoFacturacion, String horario, String propuestaEconomica, Anexo anexo) {
 		super();
 		this.idRegistroAsignacion = idRegistroAsignacion;
 		this.cliente = cliente;
@@ -158,8 +146,37 @@ public class RegistroAsignacion {
 		this.fechaFinAnexoFacturacion = fechaFinAnexoFacturacion;
 		this.horario = horario;
 		this.propuestaEconomica = propuestaEconomica;
-		Anexo = anexo;
+		this.anexo = anexo;
 	}
+
+
+
+	public RegistroAsignacion(Integer idRegistroAsignacion, Cliente cliente, Perfil perfil, Area area,
+			GerentesArea gerentesArea, LideresConsultor lider, GerenteComercial gerenteComercial, Personas persona,
+			String ubicacionConsultor, Date fechaInicioAsignacion, Date fechaFinAsignacion,
+			Date fechaInicioAnexoAsignacion, Date fechaFinAnexoAsignacion, Date fechaInicioAnexoFacturacion,
+			Date fechaFinAnexoFacturacion, String horario, String propuestaEconomica) {
+		super();
+		this.idRegistroAsignacion = idRegistroAsignacion;
+		this.cliente = cliente;
+		this.perfil = perfil;
+		this.area = area;
+		this.gerentesArea = gerentesArea;
+		this.lider = lider;
+		this.gerenteComercial = gerenteComercial;
+		this.persona = persona;
+		this.ubicacionConsultor = ubicacionConsultor;
+		this.fechaInicioAsignacion = fechaInicioAsignacion;
+		this.fechaFinAsignacion = fechaFinAsignacion;
+		this.fechaInicioAnexoAsignacion = fechaInicioAnexoAsignacion;
+		this.fechaFinAnexoAsignacion = fechaFinAnexoAsignacion;
+		this.fechaInicioAnexoFacturacion = fechaInicioAnexoFacturacion;
+		this.fechaFinAnexoFacturacion = fechaFinAnexoFacturacion;
+		this.horario = horario;
+		this.propuestaEconomica = propuestaEconomica;
+	}
+
+	
 	
 	public Integer getIdRegistroAsignacion() {
 		return idRegistroAsignacion;
@@ -185,11 +202,11 @@ public class RegistroAsignacion {
 		this.perfil = perfil;
 	}
 
-	public Areaa getArea() {
+	public Area getArea() {
 		return area;
 	}
 
-	public void setArea(Areaa area) {
+	public void setArea(Area area) {
 		this.area = area;
 	}
 
@@ -217,11 +234,11 @@ public class RegistroAsignacion {
 		this.gerenteComercial = gerenteComercial;
 	}
 
-	public Persona getPersona() {
+	public Personas getPersona() {
 		return persona;
 	}
 
-	public void setPersona(Persona persona) {
+	public void setPersona(Personas persona) {
 		this.persona = persona;
 	}
 
@@ -297,12 +314,28 @@ public class RegistroAsignacion {
 		this.propuestaEconomica = propuestaEconomica;
 	}
 
-	public String getAnexo() {
-		return Anexo;
+	
+	public Anexo getAnexo() {
+		return anexo;
 	}
 
-	public void setAnexo(String anexo) {
-		Anexo = anexo;
+
+	public void setAnexo(Anexo anexo) {
+		this.anexo = anexo;
 	}
+
+
+	@Override
+	public String toString() {
+		return "RegistroAsignacion [idRegistroAsignacion=" + idRegistroAsignacion + ", cliente=" + cliente + ", perfil="
+				+ perfil + ", area=" + area + ", gerentesArea=" + gerentesArea + ", lider=" + lider
+				+ ", gerenteComercial=" + gerenteComercial + ", persona=" + persona + ", ubicacionConsultor="
+				+ ubicacionConsultor + ", fechaInicioAsignacion=" + fechaInicioAsignacion + ", fechaFinAsignacion="
+				+ fechaFinAsignacion + ", fechaInicioAnexoAsignacion=" + fechaInicioAnexoAsignacion
+				+ ", fechaFinAnexoAsignacion=" + fechaFinAnexoAsignacion + ", fechaInicioAnexoFacturacion="
+				+ fechaInicioAnexoFacturacion + ", fechaFinAnexoFacturacion=" + fechaFinAnexoFacturacion + ", horario="
+				+ horario + ", propuestaEconomica=" + propuestaEconomica + ", anexo=" + anexo + "]";
+	}
+
 	
 }

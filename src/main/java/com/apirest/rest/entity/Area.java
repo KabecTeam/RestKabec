@@ -23,7 +23,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name="area")
-public class Areaa {
+public class Area {
 
 	@Id
 	@GeneratedValue
@@ -33,10 +33,7 @@ public class Areaa {
 	@Column(name = "nombreArea", nullable = false, length = 50)
 	private String nombreArea;
 
-	
-	@JsonProperty("idCliente")
-	@JsonIdentityInfo(generator= ObjectIdGenerators.StringIdGenerator.class,property = "idCliente", resolver = Manager.class)
-	@JsonIdentityReference(alwaysAsId=true)
+	@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "idCliente", nullable = false)
 	private Cliente cliente;
@@ -61,6 +58,7 @@ public class Areaa {
 
 	}
 
+	
 	public Areaa(Integer idArea, String nombreArea, Cliente cliente) {
 		super();
 		this.idArea = idArea;
