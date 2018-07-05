@@ -33,7 +33,7 @@ public class Area {
 	@Column(name = "nombreArea", nullable = false, length = 50)
 	private String nombreArea;
 
-	@JsonIgnore
+	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "idCliente", nullable = false)
 	private Cliente cliente;
@@ -54,19 +54,19 @@ public class Area {
 		this.registroAsignacion = registroAsignacion;
 	}
 
-	public Areaa() {
+	public Area() {
 
 	}
 
 	
-	public Areaa(Integer idArea, String nombreArea, Cliente cliente) {
+	public Area(Integer idArea, String nombreArea, Cliente cliente) {
 		super();
 		this.idArea = idArea;
 		this.nombreArea = nombreArea;
 		this.cliente = cliente;
 	}
 
-	public Areaa(Integer idArea, String nombreArea, Cliente cliente, Set<GerentesArea> gerentesArea) {
+	public Area(Integer idArea, String nombreArea, Cliente cliente, Set<GerentesArea> gerentesArea) {
 		super();
 		this.idArea = idArea;
 		this.nombreArea = nombreArea;

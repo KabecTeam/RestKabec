@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import com.apirest.rest.entity.Persona;
+import com.apirest.rest.entity.Personas;
 import com.apirest.rest.entity.RegistroAsignacion;
 import com.apirest.rest.repository.PersonaRepository;
 import com.apirest.rest.repository.RegistroAsignacionRepository;
@@ -35,9 +35,9 @@ public class AsignacionServiceImpl implements AsignadosService{
 	}
 
 	@Override
-	public List<Persona> ShowNoAsig() {
-		Iterable<Persona> iPersona= personaRepository.findAll();
-		List<Persona> lPersona= new ArrayList<Persona>();
+	public List<Personas> ShowNoAsig() {
+		Iterable<Personas> iPersona= personaRepository.findAll();
+		List<Personas> lPersona= new ArrayList<Personas>();
 		iPersona.forEach(lPersona::add);
 		return lPersona;
 	}

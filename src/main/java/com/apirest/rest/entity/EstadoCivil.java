@@ -22,11 +22,11 @@ public class EstadoCivil {
 	private String descripcion;
 	
 	@OneToMany(fetch=FetchType.EAGER,mappedBy="estadocivil")
-	private Set<Persona> personas=new HashSet<Persona>();
+	private Set<Personas> personas=new HashSet<Personas>();
 	
 
 	
-	public EstadoCivil(int idEstadoCivil, String descripcion, Set<Persona> personas) {
+	public EstadoCivil(int idEstadoCivil, String descripcion, Set<Personas> personas) {
 		super();
 		this.idEstadoCivil = idEstadoCivil;
 		this.descripcion = descripcion;
@@ -53,11 +53,11 @@ public class EstadoCivil {
 		this.descripcion = descripcion;
 	}
 
-	public Set<Persona> getPersonas() {
+	public Set<Personas> getPersonas() {
 		return personas;
 	}
 
-	public void setPersonas(Set<Persona> personas) {
+	public void setPersonas(Set<Personas> personas) {
 		this.personas = personas;
 	}
 	

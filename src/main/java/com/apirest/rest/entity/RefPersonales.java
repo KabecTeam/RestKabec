@@ -47,7 +47,7 @@ public class RefPersonales {
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "idpersona", nullable = false)
-	private Persona personas;
+	private Personas personas;
 
 	public RefPersonales() {
 
@@ -55,7 +55,7 @@ public class RefPersonales {
 
 	public RefPersonales(int idRefPerson, String nombCompleto, String tiempoConocer, String telefono,
 			String nombCompleto1, String tiempoConocer1, String telefono1, String nombCompleto2, String tiempoConocer2,
-			String telefono2, Persona personas) {
+			String telefono2, Personas personas) {
 		super();
 		this.idRefPerson = idRefPerson;
 		this.nombCompleto = nombCompleto;
@@ -150,11 +150,11 @@ public class RefPersonales {
 		this.telefono = telefono;
 	}
 
-	public Persona getPersonas() {
+	public Personas getPersonas() {
 		return personas;
 	}
 
-	public void setPersonas(Persona personas) {
+	public void setPersonas(Personas personas) {
 		this.personas = personas;
 	}
 

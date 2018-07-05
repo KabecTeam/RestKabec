@@ -12,7 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import com.apirest.rest.entity.Persona;
+import com.apirest.rest.entity.Personas;
 import com.apirest.rest.entity.RegistroAsignacion;
 import com.apirest.rest.serviceImp.AsignacionServiceImpl;
 import com.apirest.rest.serviceImp.PersonaServiceImpl;
@@ -31,9 +31,9 @@ public class ControlerAsig {
 	private AsignacionServiceImpl asignacionServiceImpl;
 	
 	@RequestMapping(value="/repPerAsig", method=RequestMethod.GET )
-	public ResponseEntity<Persona> repPerAsig(){
+	public ResponseEntity<Personas> repPerAsig(){
 		List<RegistroAsignacion> lAsig= asignacionServiceImpl.ShowAsig();
-		List<Persona> persona1= new ArrayList<Persona>();
+		List<Personas> persona1= new ArrayList<Personas>();
 		
 		for(RegistroAsignacion asignado :lAsig){
 			
@@ -54,11 +54,11 @@ public class ControlerAsig {
 	}
 	
 	@RequestMapping(value="/repPerNoAsig", method=RequestMethod.GET )
-	public ResponseEntity<Persona> repPerNoAsig(){
-		List<Persona> lPersona= asignacionServiceImpl.ShowNoAsig();
-		List<Persona> lPersonasNoAsignadas= new ArrayList<Persona>();
+	public ResponseEntity<Personas> repPerNoAsig(){
+		List<Personas> lPersona= asignacionServiceImpl.ShowNoAsig();
+		List<Personas> lPersonasNoAsignadas= new ArrayList<Personas>();
 		List<RegistroAsignacion> lAsig= asignacionServiceImpl.ShowAsig();
-		for(Persona person:lPersona){
+		for(Personas person:lPersona){
 			
 			if(null==person.getRegistroAsignacion()){
 				lPersonasNoAsignadas.add(person);

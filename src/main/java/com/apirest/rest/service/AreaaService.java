@@ -2,20 +2,20 @@ package com.apirest.rest.service;
 
 import java.util.List;
 
-import com.apirest.rest.entity.Areaa;
+import com.apirest.rest.entity.Area;
 
 
 
 public interface AreaaService {
 	
-	public abstract Areaa addArea(Areaa area);
+	public abstract Area addArea(Area area);
 	
 	public Boolean deleteArea(int id);
 	
-	public abstract Areaa findArea(Integer id);
+	public abstract Area findArea(int id);
 	
-	public abstract Areaa updateArea(Areaa areaU);
+	public abstract Area updateArea(Area areaU);
 	
-	public List<Areaa> showAreas();
+	public List<Area> showAreas();
 
 }

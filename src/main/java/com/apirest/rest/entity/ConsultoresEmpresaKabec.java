@@ -35,7 +35,7 @@ public class ConsultoresEmpresaKabec {
 	private boolean pAlimenticia;	
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="idpersona",nullable=false)
-	private Persona personas;
+	private Personas personas;
 	
 	
 	public ConsultoresEmpresaKabec(){
@@ -55,7 +55,7 @@ public class ConsultoresEmpresaKabec {
 	}
 
 	public ConsultoresEmpresaKabec(int conEmpKabec, BigInteger numSS, String infonavit, String fonacot,
-			BigInteger noCuenta, BigInteger cInterbancaria, boolean pAlimenticia, Persona personas) {
+			BigInteger noCuenta, BigInteger cInterbancaria, boolean pAlimenticia, Personas personas) {
 		super();
 		this.conEmpKabec = conEmpKabec;
 		this.numSS = numSS;
@@ -123,11 +123,11 @@ public class ConsultoresEmpresaKabec {
 		this.pAlimenticia = pAlimenticia;
 	}
 
-	public Persona getPersonas() {
+	public Personas getPersonas() {
 		return personas;
 	}
 
-	public void setPersonas(Persona personas) {
+	public void setPersonas(Personas personas) {
 		this.personas = personas;
 	}
 	

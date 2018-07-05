@@ -31,7 +31,7 @@ public class Escolaridad {
 	
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="idpersona",nullable=false)
-	private Persona personas;
+	private Personas personas;
 	
 	
 	public Escolaridad(){
@@ -40,7 +40,7 @@ public class Escolaridad {
 
 
 	public Escolaridad(int idEscolaridad, String ultGraEstud, String escuelaProc, String docObtenido,
-			Persona personas) {
+			Personas personas) {
 		super();
 		this.idEscolaridad = idEscolaridad;
 		this.ultGraEstud = ultGraEstud;
@@ -99,12 +99,12 @@ public class Escolaridad {
 	}
 
 
-	public Persona getPersonas() {
+	public Personas getPersonas() {
 		return personas;
 	}
 
 
-	public void setPersonas(Persona personas) {
+	public void setPersonas(Personas personas) {
 		this.personas = personas;
 	}
 	

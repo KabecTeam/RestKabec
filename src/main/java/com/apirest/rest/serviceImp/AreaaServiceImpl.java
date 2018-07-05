@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import com.apirest.rest.entity.Areaa;
+import com.apirest.rest.entity.Area;
 import com.apirest.rest.repository.AreaRepository;
 import com.apirest.rest.service.AreaaService;
 @Service("areaServiceImpl")
@@ -18,15 +18,15 @@ public class AreaaServiceImpl implements AreaaService{
 	private AreaRepository areaRepository;
 
 	@Override
-	public Areaa addArea(Areaa area) {
+	public Area addArea(Area area) {
 		return areaRepository.save(area);
 	}
 
 	@Override
 	public Boolean deleteArea(int id) {
-		Areaa area=areaRepository.getOne(id);
+		Area area=areaRepository.getOne(id);
 		if(null!=area){
-			areaRepository.deleteById(id);	
+			areaRepository.delete(id);	
 			return true;
 		}
 		else {
@@ -35,19 +35,19 @@ public class AreaaServiceImpl implements AreaaService{
 	}
 
 	@Override
-	public Areaa findArea(Integer id) {
+	public Area findArea(int id) {
 		return areaRepository.getOne(id);
 	}
 
 	@Override
-	public Areaa updateArea(Areaa areaU) {
+	public Area updateArea(Area areaU) {
 		return areaRepository.saveAndFlush(areaU);
 	}
 
 	@Override
-	public List<Areaa> showAreas() {
-		Iterable<Areaa> iAreas= areaRepository.findAll();
-		List<Areaa> lAreas= new ArrayList<Areaa>();
+	public List<Area> showAreas() {
+		Iterable<Area> iAreas= areaRepository.findAll();
+		List<Area> lAreas= new ArrayList<Area>();
 		iAreas.forEach(lAreas::add);
 		return lAreas;
 		

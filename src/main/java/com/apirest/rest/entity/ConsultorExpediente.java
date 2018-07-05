@@ -68,7 +68,7 @@ public class ConsultorExpediente {
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "idpersona", nullable = false)
-	private Persona personas;
+	private Personas personas;
 
 	public ConsultorExpediente() {
 	}
@@ -77,7 +77,7 @@ public class ConsultorExpediente {
 			boolean cuentaAfore, boolean ine, boolean comprobanteDomicilio, boolean cartaRetencionInfonavit,
 			boolean cartaAntecedentesNoPenales, boolean cedulaProfesionalOComprobanteEstudios,
 			boolean numeroSeguridadSocial, boolean cartaRecomendacion, boolean cartaDatosBancariosOEstadoDeCuenta,
-			boolean fonacot, boolean pesionAlimenticia, boolean curp, boolean rfc, Persona personas) {
+			boolean fonacot, boolean pesionAlimenticia, boolean curp, boolean rfc, Personas personas) {
 		super();
 		this.fotoInfantil = fotoInfantil;
 		this.actaNacimiento = actaNacimiento;
@@ -103,7 +103,7 @@ public class ConsultorExpediente {
 			boolean cartaRetencionInfonavit, boolean cartaAntecedentesNoPenales,
 			boolean cedulaProfesionalOComprobanteEstudios, boolean numeroSeguridadSocial, boolean cartaRecomendacion,
 			boolean cartaDatosBancariosOEstadoDeCuenta, boolean fonacot, boolean pesionAlimenticia, boolean curp,
-			boolean rfc, Persona personas) {
+			boolean rfc, Personas personas) {
 		super();
 		this.idExpediente = idExpediente;
 		this.fotoInfantil = fotoInfantil;
@@ -261,11 +261,11 @@ public class ConsultorExpediente {
 		this.rfc = rfc;
 	}
 
-	public Persona getPersonas() {
+	public Personas getPersonas() {
 		return personas;
 	}
 
-	public void setPersonas(Persona personas) {
+	public void setPersonas(Personas personas) {
 		this.personas = personas;
 	}
 

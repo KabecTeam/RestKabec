@@ -54,7 +54,7 @@ private String ocupacion4;
 
 @ManyToOne(fetch=FetchType.EAGER)
 @JoinColumn(name="idpersonas",nullable=false)
-private Persona personas;
+private Personas personas;
 
 
 
@@ -66,7 +66,7 @@ public DatosFamiliares(){
 public DatosFamiliares(int idDatosFam, String nomFamiliar, String parentesco, Integer edad, String ocupacion,
 		String nomFamiliar2, String parentesco2, Integer edad2, String ocupacion2, String nomFamiliar3,
 		String parentesco3, Integer edad3, String ocupacion3, String nomFamiliar4, String parentesco4, Integer edad4,
-		String ocupacion4, Persona personas) {
+		String ocupacion4, Personas personas) {
 	super();
 	this.idDatosFam = idDatosFam;
 	this.nomFamiliar = nomFamiliar;
@@ -125,11 +125,11 @@ public void setOcupacion(String ocupacion) {
 	this.ocupacion = ocupacion;
 }
 
-public Persona getPersonas() {
+public Personas getPersonas() {
 	return personas;
 }
 
-public void setPersonas(Persona personas) {
+public void setPersonas(Personas personas) {
 	this.personas = personas;
 }
 

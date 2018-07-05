@@ -52,7 +52,7 @@ public class RegistroContrato {
 	private String fechfincomp;
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="personas",nullable=false)
-	private Persona personas;
+	private Personas personas;
 	
 
 	public RegistroContrato(int idRegistroCont, String numRequerimiento, int tarifa, String numPoliza,
@@ -77,7 +77,7 @@ public class RegistroContrato {
 	public RegistroContrato(int idRegistroCont, String numRequerimiento, int tarifa, String numPoliza,
 			String estConsultor, int sueldo, String fechAltImss, Boolean recontratacion, ContratoNomina contratoNomina,
 			String fechininomin, String fechfinnomin, String numConsultor, EmpresaComplemento empresaComplemento,
-			String fechinicomp, String fechfincomp, Persona personas) {
+			String fechinicomp, String fechfincomp, Personas personas) {
 		super();
 		this.idRegistroCont = idRegistroCont;
 		this.numRequerimiento = numRequerimiento;
@@ -176,11 +176,11 @@ public class RegistroContrato {
 		this.fechfincomp = fechfincomp;
 	}
 
-	public Persona getPersonas() {
+	public Personas getPersonas() {
 		return personas;
 	}
 
-	public void setPersonas(Persona personas) {
+	public void setPersonas(Personas personas) {
 		this.personas = personas;
 	}
 

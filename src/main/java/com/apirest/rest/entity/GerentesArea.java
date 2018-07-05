@@ -42,7 +42,7 @@ public class GerentesArea {
 	
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="idArea" ,nullable=false)
-	private Areaa area;
+	private Area area;
 	
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "gerentesArea")
 	private Set<LideresConsultor> lideresConsultor= new HashSet<LideresConsultor>();
@@ -64,7 +64,7 @@ public class GerentesArea {
 	}
 	
 	public GerentesArea(Integer idGerente, String nombre, String apellidoPaterno, String apellidoMaterno,
-			String numTelefonico, String extNumeroTelefonico, String correo, Areaa area,
+			String numTelefonico, String extNumeroTelefonico, String correo, Area area,
 			Set<LideresConsultor> lideresConsultor) {
 		super();
 		this.idGerente = idGerente;
@@ -134,11 +134,11 @@ public class GerentesArea {
 		this.correo = correo;
 	}
 
-	public Areaa getArea() {
+	public Area getArea() {
 		return area;
 	}
 
-	public void setArea(Areaa area) {
+	public void setArea(Area area) {
 		this.area = area;
 	}
 

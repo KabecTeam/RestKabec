@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
-import com.apirest.rest.entity.Persona;
+import com.apirest.rest.entity.Personas;
 import com.apirest.rest.repository.PersonaRepository;
 import com.apirest.rest.service.PersonaService;
 
@@ -19,9 +19,9 @@ public class PersonaServiceImpl implements PersonaService{
 	private PersonaRepository personaRepository;
 	
 	@Override
-	public List<Persona> findPerson() {
-		Iterable<Persona> iPersonaRepository= personaRepository.findAll();
-		List<Persona> lPersonaRepository= new ArrayList<Persona>();
+	public List<Personas> findPerson() {
+		Iterable<Personas> iPersonaRepository= personaRepository.findAll();
+		List<Personas> lPersonaRepository= new ArrayList<Personas>();
 		iPersonaRepository.forEach(lPersonaRepository::add);
 		return lPersonaRepository;
 	}

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.apirest.rest.entity.Areaa;
+import com.apirest.rest.entity.Area;
 import com.apirest.rest.entity.Cliente;
 import com.apirest.rest.serviceImp.AreaaServiceImpl;
 import com.apirest.rest.serviceImp.ClienteServiceImpl;
@@ -33,7 +33,7 @@ public class AreaController {
 	private ClienteServiceImpl clienteServiceImpl;
 
 	@RequestMapping(value="/addArea", method=RequestMethod.POST )
-	public ResponseEntity<Areaa> addArea(@Valid @RequestBody Areaa area){
+	public ResponseEntity<Area> addArea(@Valid @RequestBody Area area){
 		
 		Cliente id=area.getCliente();
 		int idClie=id.getIdCliente();
@@ -41,12 +41,12 @@ public class AreaController {
 		Cliente cliente= clienteServiceImpl.findCliente(idClie);
 		
 		if(null!=cliente){
-			Areaa addArea = areaServiceImpl.addArea(area);
-			return new ResponseEntity<Areaa>(addArea,HttpStatus.CREATED);
+			Area addArea = areaServiceImpl.addArea(area);
+			return new ResponseEntity<Area>(addArea,HttpStatus.CREATED);
 			
 		}else {
 			
-			return new ResponseEntity<Areaa>(HttpStatus.CONFLICT);
+			return new ResponseEntity<Area>(HttpStatus.CONFLICT);
 		}
 		
 	}
@@ -60,24 +60,24 @@ public class AreaController {
 	}
 	
 	@RequestMapping(value="/updateArea", method=RequestMethod.POST )
-	public ResponseEntity<Areaa> delArea(@Valid @RequestBody Areaa area){
-		Areaa areaUPT=areaServiceImpl.updateArea(area);
-		return new ResponseEntity<Areaa>(areaUPT,HttpStatus.OK);
+	public ResponseEntity<Area> delArea(@Valid @RequestBody Area area){
+		Area areaUPT=areaServiceImpl.updateArea(area);
+		return new ResponseEntity<Area>(areaUPT,HttpStatus.OK);
 		
 	
 	}
 	
 	@RequestMapping(value="/findArea", method=RequestMethod.GET)
-	public ResponseEntity<Areaa> findCliente(@RequestParam(name="idArea") Integer id){
-		Areaa area= areaServiceImpl.findArea(id);
+	public ResponseEntity<Area> findCliente(@RequestParam(name="idArea") Integer id){
+		Area area= areaServiceImpl.findArea(id);
 		System.out.println(id);
 		return new ResponseEntity(area,HttpStatus.FOUND);
 		
 	}
 	
 	@RequestMapping(value="/ShowAreas", method=RequestMethod.GET )
-	public ResponseEntity<Areaa> showAreas(){
-		List<Areaa> lAreas= areaServiceImpl.showAreas();
+	public ResponseEntity<Area> showAreas(){
+		List<Area> lAreas= areaServiceImpl.showAreas();
 		return new ResponseEntity(lAreas, HttpStatus.OK);
 	}
 }

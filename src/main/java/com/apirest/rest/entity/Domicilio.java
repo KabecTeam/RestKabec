@@ -36,14 +36,14 @@ public class Domicilio {
 	
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="idpersona",nullable=false)
-	private Persona personas;
+	private Personas personas;
 	
 	public Domicilio(){
 		
 	}
 
 	public Domicilio(int idDomicilio, int cp, String lote, String delegacion, String manzana, String colonia,
-			String noInt, String calle, String noExt, Persona personas) {
+			String noInt, String calle, String noExt, Personas personas) {
 		super();
 		this.idDomicilio = idDomicilio;
 		this.cp = cp;
@@ -129,11 +129,11 @@ public class Domicilio {
 		this.noExt = noExt;
 	}
 
-	public Persona getPersonas() {
+	public Personas getPersonas() {
 		return personas;
 	}
 
-	public void setPersonas(Persona personas) {
+	public void setPersonas(Personas personas) {
 		this.personas = personas;
 	}
 	

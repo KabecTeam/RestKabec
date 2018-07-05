@@ -2,7 +2,7 @@ package com.apirest.rest.entity;
 
 import java.util.HashSet;
 import java.util.Set;
-import com.apirest.rest.entity.Persona;
+import com.apirest.rest.entity.Personas;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -22,9 +22,9 @@ private int idGenero;
 	private String tipoGenero;
 	
 	@OneToMany(fetch=FetchType.EAGER,mappedBy="genero")
-	private Set<com.apirest.rest.entity.Persona> personas=new HashSet<com.apirest.rest.entity.Persona>();
+	private Set<com.apirest.rest.entity.Personas> personas=new HashSet<com.apirest.rest.entity.Personas>();
 
-	public Genero(int idGenero, String tipoGenero, Set<com.apirest.rest.entity.Persona> personas) {
+	public Genero(int idGenero, String tipoGenero, Set<com.apirest.rest.entity.Personas> personas) {
 		super();
 		this.idGenero = idGenero;
 		this.tipoGenero = tipoGenero;
@@ -51,11 +51,11 @@ private int idGenero;
 		this.tipoGenero = tipoGenero;
 	}
 
-	public Set<Persona> getPersonas() {
+	public Set<Personas> getPersonas() {
 		return personas;
 	}
 
-	public void setPersonas(Set<Persona> personas) {
+	public void setPersonas(Set<Personas> personas) {
 		this.personas = personas;
 	}
 

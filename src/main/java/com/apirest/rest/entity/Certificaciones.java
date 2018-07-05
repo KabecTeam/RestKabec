@@ -35,14 +35,14 @@ public class Certificaciones {
   
   @ManyToOne(fetch=FetchType.EAGER)
   @JoinColumn(name="personas",nullable=false)
-  private Persona personas;
+  private Personas personas;
   
   public Certificaciones(){
 	  
   }
 
 public Certificaciones(int idCertificacion, String nombreCertificacion, int anioCertificacion, int anioValidez,
-		String nombreCertificacion2, int anioCertificacion2, int anioValidez2, Persona personas) {
+		String nombreCertificacion2, int anioCertificacion2, int anioValidez2, Personas personas) {
 	super();
 	this.idCertificacion = idCertificacion;
 	this.nombreCertificacion = nombreCertificacion;
@@ -88,11 +88,11 @@ public void setAnioValidez(int anioValidez) {
 	this.anioValidez = anioValidez;
 }
 
-public Persona getPersonas() {
+public Personas getPersonas() {
 	return personas;
 }
 
-public void setPersonas(Persona personas) {
+public void setPersonas(Personas personas) {
 	this.personas = personas;
 }
 
