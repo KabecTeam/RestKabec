@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.apirest.rest.entity.Area;
@@ -21,7 +22,7 @@ import com.apirest.rest.serviceImp.AreaaServiceImpl;
 import com.apirest.rest.serviceImp.ClienteServiceImpl;
 
 @RestController
-@CrossOrigin(origins="http://localhost:4200",allowedHeaders="*")
+//@CrossOrigin(origins="http://localhost:4200",allowedHeaders="*")
 public class AreaController {
 	
 	@Autowired
@@ -77,7 +78,7 @@ public class AreaController {
 	
 	@RequestMapping(value="/ShowAreas", method=RequestMethod.GET )
 	public ResponseEntity<Area> showAreas(){
-		List<Area> lAreas= areaServiceImpl.showAreas();
-		return new ResponseEntity(lAreas, HttpStatus.OK);
+		List<Area> areas=  areaServiceImpl.showAreas();
+		return new ResponseEntity(areas, HttpStatus.OK);
 	}
 }

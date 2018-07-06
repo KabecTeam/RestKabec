@@ -19,6 +19,8 @@ import javax.persistence.UniqueConstraint;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="personas",uniqueConstraints=@UniqueConstraint
 (columnNames={"idpersona"}))
@@ -78,41 +80,50 @@ private BigInteger claveInter;
 @Column(name="pension")
 private Boolean pension;
 
-
+@JsonIgnore
 @ManyToOne(fetch=FetchType.EAGER)
 @JoinColumn(name="bancos",nullable=false)
 private Bancos bancos;
 
+@JsonIgnore
 @ManyToOne(fetch=FetchType.EAGER)
 @JoinColumn(name="idgenero",nullable=false)
 private Genero genero;
 
-
+@JsonIgnore
 @ManyToOne(fetch=FetchType.EAGER)
 @JoinColumn(name="idEstadoCivil",nullable=false)
 private EstadoCivil estadocivil;
 
+@JsonIgnore
 @OneToMany(fetch=FetchType.EAGER,mappedBy="personas")
 private Set<Escolaridad> escolaridad=new HashSet<Escolaridad>();
 
+@JsonIgnore
 @OneToMany(fetch=FetchType.EAGER,mappedBy="personas")
 private Set<Domicilio> domicilio=new HashSet<>();
 
+@JsonIgnore
 @OneToMany(fetch=FetchType.EAGER,mappedBy="personas")
 private Set<RefPersonales> refPersonales=new HashSet<RefPersonales>();
 
+@JsonIgnore
 @OneToMany(fetch=FetchType.EAGER,mappedBy="personas")
 private Set<ConsultorExpediente> datosFamiliares=new HashSet<ConsultorExpediente>();
 
+@JsonIgnore
 @OneToMany(fetch = FetchType.EAGER, mappedBy = "persona")
 private Set<RegistroAsignacion> registroAsignacion = new HashSet<RegistroAsignacion>();
 
+@JsonIgnore
 @OneToMany(fetch=FetchType.EAGER,mappedBy="personas")
 private Set<RegistroContrato> registroContrato=new HashSet<RegistroContrato>();
 
+@JsonIgnore
 @OneToMany(fetch=FetchType.EAGER,mappedBy="personas")
 private Set<Certificaciones> certificaciones=new HashSet<Certificaciones>();
 
+@JsonIgnore
 @OneToMany(fetch=FetchType.EAGER,mappedBy="personas")
 private Set<CalendarioPagos> calendarioPagos=new HashSet<CalendarioPagos>();
 

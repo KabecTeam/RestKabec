@@ -32,8 +32,10 @@ public class Area {
 
 	@Column(name = "nombreArea", nullable = false, length = 50)
 	private String nombreArea;
-
 	
+	@JsonProperty("idCliente")
+	@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class,property="idCliente")
+	@JsonIdentityReference(alwaysAsId=true)
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "idCliente", nullable = false)
 	private Cliente cliente;
@@ -42,7 +44,7 @@ public class Area {
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "area")
 	private Set<GerentesArea> gerentesArea = new HashSet<GerentesArea>();
 	
-	@JsonIgnore
+	@JsonProperty
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "area")
 	private Set<RegistroAsignacion> registroAsignacion = new HashSet<RegistroAsignacion>();
 

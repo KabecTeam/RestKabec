@@ -26,7 +26,7 @@ public class AreaaServiceImpl implements AreaaService{
 	public Boolean deleteArea(int id) {
 		Area area=areaRepository.getOne(id);
 		if(null!=area){
-			areaRepository.delete(id);	
+			areaRepository.deleteById(id);
 			return true;
 		}
 		else {

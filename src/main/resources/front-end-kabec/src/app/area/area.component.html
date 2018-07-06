@@ -1,0 +1,20 @@
+<div>
+	<h2>Areas</h2>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Id Area</th>
+				<th>Nombre Area</th>
+				<th>Id Cliente</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let area of areas">
+				<td>{{area.idArea}}</td>
+				<td>{{area.nombreArea}}</td>
+				<td>{{area.idCliente}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

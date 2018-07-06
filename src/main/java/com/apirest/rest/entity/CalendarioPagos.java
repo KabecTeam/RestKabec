@@ -10,17 +10,21 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="calendariopagos")
 public class CalendarioPagos {
-
+	@JsonIgnore
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int idpago;
 	
+	@JsonIgnore
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="consultor",nullable=false)
 	private Personas personas;
+	
 	
 	@Column(name="numeropago")
 	private int numeropago;
@@ -34,6 +38,7 @@ public class CalendarioPagos {
 	@Column(name="fechapago",length=20)
 	private String fechapago;
 	
+	@JsonIgnore
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="idfactura",nullable=false)
 	private Facturas facturas;
@@ -53,13 +58,16 @@ public class CalendarioPagos {
 	@Column(name="saldo")
 	private int saldo;
 	
+	@JsonIgnore
 	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="idperiodo",nullable=false)
+	@JoinColumn(name="idperiodo",nullable=true)
 	private Periodo periodo;
 	
-	@Column(name="montopago")
+	@JsonIgnore
+	@Column(name="montopago",nullable=true)
 	private int montopago;
 	
+	@JsonIgnore
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="idanexo",nullable=false)
 	private Anexo anexo;

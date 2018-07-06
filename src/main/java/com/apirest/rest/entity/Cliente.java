@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 @Table(name="cliente")
@@ -26,12 +28,14 @@ public class Cliente {
 	@Column(name="nombreCliente", nullable=false, length=50)
 	private String nombreCliente;
 	
+	@JsonIgnore
 	@OneToMany(fetch=FetchType.EAGER,mappedBy="cliente")
 	private Set<Area> area=new HashSet<Area>(); 
-	
+	@JsonIgnore
 	@OneToMany(fetch=FetchType.EAGER,mappedBy="cliente")
 	private Set<RegistroAsignacion> registroAsignacion=new HashSet<RegistroAsignacion>(); 
 	
+	@JsonIgnore
     @OneToMany(fetch=FetchType.EAGER,mappedBy="cliente")
 	private Set<Anexo> anexo=new HashSet<Anexo>();
     
