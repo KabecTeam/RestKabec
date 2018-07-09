@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { HttpClient,HttpHeaders,HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import {Area} from '../modelos/area';
 
@@ -13,12 +13,23 @@ const httpOptions = {
 })
 export class ServicioAreaService {
 
-  constructor(private _httpCliente: HttpClient) { 
-  }
+  constructor(private _httpCliente: HttpClient) { }
 
-	private urlAreas = 'http://localhost:8080/user-portal/'
+	private urlAreas = "http://localhost:8080/user-portal/area/";
+
+
 
   getAll():Observable<any>{
-	  return this._httpCliente.get(this.urlAreas+'ShowAreas');
+	  return this._httpCliente.get<Area>(this.urlAreas+'ShowAreas');
   }
+
+  deleteArea(area: Area){
+  	return this._httpCliente.delete(this.urlAreas+'delArea?idArea='+area.idArea)
+
+	};
+
+	createArea(area:Area){
+		return this._httpCliente.post(this.urlAreas+'addArea',area,httpOptions)
+	}
+
 }

@@ -16,4 +16,4 @@ spring:
 server:
   servlet:
     context-path: /user-portal
-  port: 8080 
+    

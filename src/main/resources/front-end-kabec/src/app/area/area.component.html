@@ -1,12 +1,12 @@
 <div>
 	<h2>Areas</h2>
 
-	<table>
+	<table class="table-list">
 		<thead>
 			<tr>
 				<th>Id Area</th>
 				<th>Nombre Area</th>
-				<th>Id Cliente</th>
+				<th>Cliente</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -14,6 +14,7 @@
 				<td>{{area.idArea}}</td>
 				<td>{{area.nombreArea}}</td>
 				<td>{{area.idCliente}}</td>
+				<td><input type="button" name="eliminar" (click)="deleteArea(area)">
 			</tr>
 		</tbody>
 	</table>

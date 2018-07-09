@@ -12,17 +12,22 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+
 import com.apirest.rest.entity.Cliente;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 
 
 @Entity
 @Table(name="area")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Area {
 
 	@Id
@@ -30,11 +35,14 @@ public class Area {
 	@Column(name = "idArea")
 	private Integer idArea;
 
+	@NotBlank(message="Insertar el nombre del Area")
 	@Column(name = "nombreArea", nullable = false, length = 50)
 	private String nombreArea;
 	
-	@JsonProperty("idCliente")
-	@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class,property="idCliente")
+	
+
+	@JsonProperty("Cliente")
+	@JsonIdentityInfo(generator= ObjectIdGenerators.PropertyGenerator.class, property="nombreCliente")
 	@JsonIdentityReference(alwaysAsId=true)
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "idCliente", nullable = false)
@@ -44,7 +52,7 @@ public class Area {
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "area")
 	private Set<GerentesArea> gerentesArea = new HashSet<GerentesArea>();
 	
-	@JsonProperty
+	@JsonIgnore
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "area")
 	private Set<RegistroAsignacion> registroAsignacion = new HashSet<RegistroAsignacion>();
 
@@ -54,6 +62,13 @@ public class Area {
 
 	public void setRegistroAsignacion(Set<RegistroAsignacion> registroAsignacion) {
 		this.registroAsignacion = registroAsignacion;
+	}
+
+	
+	@Override
+	public String toString() {
+		return "Area [idArea=" + idArea + ", nombreArea=" + nombreArea + ", cliente=" + cliente + ", gerentesArea="
+				+ gerentesArea + ", registroAsignacion=" + registroAsignacion + "]";
 	}
 
 	public Area() {
@@ -96,6 +111,7 @@ public class Area {
 		return cliente;
 	}
 
+	@JsonIgnoreProperties("nombreCliente")
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}

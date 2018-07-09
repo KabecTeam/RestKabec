@@ -6,14 +6,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServicioAreaService } from './servicios/servicio-area.service';	
 import {IndexComponent} from './index/index.component';
-import {AreaComponent} from './area/area.component';	
+import {AreaComponent} from './area/area.component';
+import { AddAreaComponent } from './add-area/add-area.component';	
 
 
 @NgModule({
   declarations: [
     AppComponent,
     IndexComponent,
-    AreaComponent
+    AreaComponent,
+    AddAreaComponent
 
   ],
   imports: [

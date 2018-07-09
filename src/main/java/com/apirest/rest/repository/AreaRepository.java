@@ -1,6 +1,5 @@
 package com.apirest.rest.repository;
 
-
 import java.io.Serializable;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -11,5 +10,5 @@ import com.apirest.rest.entity.Area;
 
 @Repository("areaaRepository")
 public interface AreaRepository extends JpaRepository<Area, Serializable> {
-
+	
 }
