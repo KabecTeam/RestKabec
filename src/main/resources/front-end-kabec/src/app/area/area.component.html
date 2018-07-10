@@ -13,8 +13,8 @@
 			<tr *ngFor="let area of areas">
 				<td>{{area.idArea}}</td>
 				<td>{{area.nombreArea}}</td>
-				<td>{{area.idCliente}}</td>
-				<td><input type="button" name="eliminar" (click)="deleteArea(area)">
+				<td>{{area.Cliente}}</td>
+				<td><input type="button" name="eliminar" (click)="deleteArea(area)" value="eliminar"class="btn btn-success">
 			</tr>
 		</tbody>
 	</table>

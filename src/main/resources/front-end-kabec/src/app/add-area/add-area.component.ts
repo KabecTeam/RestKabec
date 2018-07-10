@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {ServicioAreaService} from '../servicios/servicio-area.service';
 import {Area} from '../modelos/area';
 import {Router} from '@angular/router';
+import {Form} from '@angular/forms';
+import { ClienteService } from '../servicios/cliente.service';
+import { Cliente } from '../modelos/cliente';
 
 @Component({
   selector: 'app-add-area',
@@ -9,13 +12,33 @@ import {Router} from '@angular/router';
   styleUrls: ['./add-area.component.css']
 })
 export class AddAreaComponent implements OnInit {
-	private area = new Area[];
-  constructor(private _router: Router,private _areaServicio: ServicioAreaService) { }
-
+	
+	constructor(private _areaServicio: ServicioAreaService, private _clienteService: ClienteService) { }
+  private area= new Area();
+  private clientes: Cliente[];
+  
   ngOnInit() {
+
+    this._clienteService.getAllClientes().subscribe(
+      data => {
+        console.log(data);
+        this.clientes = data;
+      },
+      Error => {
+        console.log(Error);
+      })
   }
 
-  
+  createArea() {
+  	this._areaServicio.createArea(this.area).subscribe(data=>{
+  		console.log(data);
+
+  	},
+  	error=>{
+  		console.log(error);
+  	})
+	};
+
 
 }
- 
+ 	

@@ -42,8 +42,9 @@ public class Area {
 	
 
 	@JsonProperty("Cliente")
-	@JsonIdentityInfo(generator= ObjectIdGenerators.PropertyGenerator.class, property="nombreCliente")
-	@JsonIdentityReference(alwaysAsId=true)
+	@JsonIdentityInfo(generator= ObjectIdGenerators.PropertyGenerator.class, property="idCliente")
+	@JsonIgnoreProperties("nombreCliente")
+
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "idCliente", nullable = false)
 	private Cliente cliente;

@@ -1,10 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AreaComponent } from './area/area.component';
-import {IndexComponent} from './index/index.component';
+import {AddAreaComponent} from './add-area/add-area.component';
+import {AreaComponent} from './area/area.component';
+import {ClienteComponent} from './cliente/cliente.component';
+
 const routes: Routes = [
-	{path:'', component: IndexComponent},
-	{path:'showAreas', component: AreaComponent}
+	{path: '', component: AddAreaComponent },
+	{path:'showAreas', component: AreaComponent},
+	{path:'ShowClientes',component:ClienteComponent}
+
 ];
 
 @NgModule({

@@ -4,6 +4,7 @@ import {Area} from '../modelos/area';
 import {ServicioAreaService} from '../servicios/servicio-area.service';
 
 
+
 @Component({
   selector: 'app-area',
   templateUrl: './area.component.html',
@@ -11,6 +12,7 @@ import {ServicioAreaService} from '../servicios/servicio-area.service';
 })
 export class AreaComponent implements OnInit {
   private areas: Area[];
+
   constructor(private _router: Router, private _areaService:ServicioAreaService) { }
 
 
@@ -38,4 +40,5 @@ export class AreaComponent implements OnInit {
 
   };
 
+ 
 }

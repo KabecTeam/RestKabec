@@ -3,4 +3,11 @@ export class Area {
 	nombreArea: any;
 	Cliente: any;
 
+	constructor(){
+		this.Cliente={
+			idCliente: ''
+		}
+	}
+	
+
 }

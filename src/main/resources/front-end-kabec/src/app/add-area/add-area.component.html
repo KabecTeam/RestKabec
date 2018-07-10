@@ -1,3 +1,21 @@
-<form>
-	div.
+<form (ngSubmit)="createArea()">
+	<div class="form-group">
+		<label for="nombreArea" class="col-4 col-form-label">Nombre del Area</label>
+		<div class="col-10">
+			<input type="text" [(ngModel)]="area.nombreArea" class="form-control" name="nombreArea" id="nombreArea">
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="Cliente" class="col-4 col-form-label">Cliente</label>
+		<div class="col-10">
+			<select class="custom-select" [(ngModel)]="area.Cliente.idCliente" name="idCliente" >
+				<option *ngFor="let cliente of clientes" [value]="cliente.idCliente">
+				{{cliente.nombreCliente}}
+				</option>
+			</select>
+		</div>
+	</div>
+	<input type="Submit" value="Crear" class="btn btn-success">
 </form>
+

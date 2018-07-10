@@ -16,7 +16,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name="cliente")
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class Cliente {
 
 	@Id
@@ -28,7 +27,7 @@ public class Cliente {
 	@Column(name="nombreCliente", nullable=false, length=50)
 	private String nombreCliente;
 	
-	
+	@JsonIgnore
 	@OneToMany(fetch=FetchType.EAGER,mappedBy="cliente")
 	private Set<Area> area=new HashSet<Area>(); 
 	
@@ -57,6 +56,13 @@ public class Cliente {
 	}
 	
 	
+	public Cliente(Integer idCliente, String nombreCliente) {
+		super();
+		this.idCliente = idCliente;
+		this.nombreCliente = nombreCliente;
+	}
+
+
 	public Cliente(Integer idCliente, String nombreCliente, Set<Area> area) {
 		super();
 		this.idCliente = idCliente;
