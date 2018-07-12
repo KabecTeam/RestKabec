@@ -1,0 +1,35 @@
+
+
+<table class="table">
+	<thead class="thead-dark">
+		<tr>
+			<th >Anexo</th>
+			<th>Nombre Consultor</th>
+			<th>Fecha Inicio Facturacion</th>
+			<th>Fecha Inicio Pago</th>
+			<th>Numero de Pago</th>
+			<th>Numero de Pagos Faltantes</th>
+			<th>Fechas de Pagos</th>
+			<th>Fechas de Facturacion</th>
+			<th>Factura</th>
+			<th>Monto de Pago</th>
+			<th >Saldo</th>		
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let pagoAnexo of pagosAnexos">
+				<td>{{pagoAnexo.idanexo}}</td>
+				<td>{{pagoAnexo.persona.nombre}} {{pagoAnexo.persona.apellidoPaterno}} {{pagoAnexo.persona.apellidoMaterno}}</td>
+				<td>{{pagoAnexo.fechainiciofactura}}</td>
+				<td>{{pagoAnexo.fechainiciopago}}</td>
+				<td>{{pagoAnexo.numeropago}}</td>
+				<td>{{pagoAnexo.pagosfaltantes}}</td>
+				<td>{{pagoAnexo.fechapago}}</td>
+				<td>{{pagoAnexo.fechafacturaion}}</td>
+				<td>{{pagoAnexo.idfactura}}</td>
+				<td>{{pagoAnexo.montopago}}</td>
+				<td>{{pagoAnexo.saldo}}</td>
+				
+		</tr>
+	</tbody>
+</table>

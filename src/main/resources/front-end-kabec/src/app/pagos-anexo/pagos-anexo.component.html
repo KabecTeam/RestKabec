@@ -2,14 +2,16 @@
 	<div class="form-group">
 		<label for="Anexo" class="col-4 col-form-label">Numero de Anexo</label>
 		<div class="col-10">
-			<select name="" id="" class="custom-select"[(ngModel)]="anexo.idAnexo">
-				<option value=""></option>
+			<select name="anexo" id="anexo"  class="custom-select" [(ngModel)]="pagoAnexo.idanexo" name="idAnexo">
+				<option [value]="anexo.idAnexo" *ngFor="let anexo of anexos">{{anexo.anexooc}}</option>
 			</select>
 		</div>
 	</div>
 
 	<div class="form-group">
-		<label for="" class="col-4 col-form-label">{{consultor.nombreConsultor}}</label>
+		<input type="checkbox" aria-label="Checkbox for following text input" >
+		<label for="" class="col col-form-label" style="display: inline;">Alex</label>
+		
 	</div>
-      <input type="checkbox" aria-label="Checkbox for following text input">
+      
 </form>

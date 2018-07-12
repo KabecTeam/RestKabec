@@ -1,20 +1,29 @@
 export class PagosAnexos {
 	idpago: any;
 	deuda: any;
-	fechaFacturacion: any;
-	fechaInicioFactura;
-	fechaInicioPago: any;
-	fechaPago:any
+	fechafacturacion: any;
+	fechainiciofactura;
+	fechainiciopago: any;
+	fechapago:any
 	importe: any;
-	montoPago: any;
-	numeroPago: any;
-	pagosFaltantes: any;
+	montopago: any;
+	numeropago: any;
+	pagosfaltantes: any;
 	saldo: any;
-	idAnexo: any;
+	idanexo: any;
 	idFactura: any;
 	idperiodo: any;
-	idConsultor: any;
+	persona: any;
 	
 
+	constructor(){
+		this.persona={
+			idpersona:'',
+			nombre:'',
+			apellidoPaterno:'',
+			apellidoMaterno:'',
 
+
+		}
+	}
 }

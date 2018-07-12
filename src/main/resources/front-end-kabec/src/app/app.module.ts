@@ -12,6 +12,10 @@ import {FormsModule} from '@angular/forms';
 import { ClienteComponent } from './cliente/cliente.component';
 import { DClienteComponent } from './d-cliente/d-cliente.component';
 import { PagosAnexoComponent } from './pagos-anexo/pagos-anexo.component';
+import { ReportePagosComponent } from './reporte-pagos/reporte-pagos.component';
+import {PagosAnexosService} from './servicios/pagos-anexos.service';
+import { AddAnexoComponent } from './add-anexo/add-anexo.component';
+import { AnexoComponent } from './anexo/anexo.component';
 
 
 
@@ -23,7 +27,10 @@ import { PagosAnexoComponent } from './pagos-anexo/pagos-anexo.component';
     AddAreaComponent,
     ClienteComponent,
     DClienteComponent,
-    PagosAnexoComponent
+    PagosAnexoComponent,
+    ReportePagosComponent,
+    AddAnexoComponent,
+    AnexoComponent
 
   ],
   imports: [
@@ -32,7 +39,9 @@ import { PagosAnexoComponent } from './pagos-anexo/pagos-anexo.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [ServicioAreaService],
+  providers: [ServicioAreaService,
+  PagosAnexosService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

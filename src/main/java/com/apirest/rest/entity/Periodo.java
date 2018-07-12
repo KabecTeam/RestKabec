@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="periodo")
 public class Periodo {
@@ -23,9 +25,11 @@ public class Periodo {
 	@Column(name="periodo",length=25,nullable=false)
 	private String periodo;
 	
+	@JsonIgnore
 	@OneToMany(fetch=FetchType.EAGER,mappedBy="periodo")
 	private Set<Anexo> anexo=new HashSet<Anexo>();
 	
+	@JsonIgnore
 	@OneToMany(fetch=FetchType.EAGER,mappedBy="periodo")
 	private Set<CalendarioPagos> calendarioPagos=new HashSet<CalendarioPagos>(); 
 	

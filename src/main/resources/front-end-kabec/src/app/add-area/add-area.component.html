@@ -10,9 +10,7 @@
 		<label for="Cliente" class="col-4 col-form-label">Cliente</label>
 		<div class="col-10">
 			<select class="custom-select" [(ngModel)]="area.Cliente.idCliente" name="idCliente" >
-				<option *ngFor="let cliente of clientes" [value]="cliente.idCliente">
-				{{cliente.nombreCliente}}
-				</option>
+				<option *ngFor="let cliente of clientes" [value]="cliente.idCliente">{{cliente.nombreCliente}}</option>
 			</select>
 		</div>
 	</div>

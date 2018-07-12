@@ -14,6 +14,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 @Entity
 @Table(name="anexo")
 public class Anexo {
@@ -22,6 +28,9 @@ public class Anexo {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int idanexo;
 	
+	@JsonProperty("Cliente")
+	@JsonIdentityInfo(generator= ObjectIdGenerators.PropertyGenerator.class, property="idCliente")
+	@JsonIgnoreProperties("nombreCliente")
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="idCliente",nullable=false)
 	private Cliente cliente;
@@ -62,13 +71,17 @@ public class Anexo {
 	@Column(name="montoxpago")
 	private int montoxpago;
 	
+	@JsonProperty("idperiodo")
+	@JsonIdentityInfo(generator= ObjectIdGenerators.PropertyGenerator.class, property="idperiodo")
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="idperiodo",nullable=false)
 	private Periodo periodo;
 	
+	@JsonIgnore
 	@OneToMany(fetch=FetchType.EAGER,mappedBy="anexo")
 	private Set<CalendarioPagos> calendarioPagos=new HashSet<CalendarioPagos>();
 	
+	@JsonIgnore
 	@OneToMany(fetch=FetchType.EAGER,mappedBy="anexo")
 	private Set<RegistroAsignacion> registroAsignacion=new HashSet<RegistroAsignacion>(); 
 	

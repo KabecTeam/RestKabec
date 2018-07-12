@@ -10,12 +10,16 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name="calendariopagos")
 public class CalendarioPagos {
-	@JsonIgnore
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int idpago;
@@ -58,16 +62,20 @@ public class CalendarioPagos {
 	@Column(name="saldo")
 	private int saldo;
 	
-	@JsonIgnore
+	@JsonProperty("Periodo")
+	@JsonIdentityInfo(generator= ObjectIdGenerators.PropertyGenerator.class, property="idperiodo")
+	@JsonIdentityReference(alwaysAsId = true)
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="idperiodo",nullable=true)
 	private Periodo periodo;
 	
-	@JsonIgnore
+	
 	@Column(name="montopago",nullable=true)
 	private int montopago;
 	
-	@JsonIgnore
+	@JsonProperty("idanexo")
+	@JsonIdentityInfo(generator= ObjectIdGenerators.PropertyGenerator.class, property="idanexo")
+	@JsonIdentityReference(alwaysAsId = true)
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="idanexo",nullable=false)
 	private Anexo anexo;
