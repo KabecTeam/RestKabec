@@ -31,7 +31,6 @@ public class RegistroAsignacion {
 	
 	@JsonProperty("idCliente")
 	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "nombreCliente")
-    @JsonIdentityReference(alwaysAsId = true)
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="idCliente",nullable=false)
 	private Cliente cliente;

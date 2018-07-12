@@ -14,13 +14,15 @@ export class PagosAnexoComponent implements OnInit {
 	constructor(private _router: Router, private _servicioAnexo: PagosAnexosService) { }
 
   ngOnInit() {
-  	this._servicioAnexo.getAllAnexos().subscribe(data=>{
-			this.anexos = data;
-			console.log(data);
-  	},
-  	Error=>{
-  		console.log(Error);
-  	})
+	  this._servicioAnexo.getAllAnexos().subscribe(data => {
+		  this.anexos = data;
+		  console.log(data);
+	  },
+		  Error => {
+			  console.log(Error);
+		  });
+
+	  this._servicioAnexo.
 
   }
 

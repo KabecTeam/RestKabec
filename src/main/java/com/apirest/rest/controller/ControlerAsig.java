@@ -77,4 +77,10 @@ public class ControlerAsig {
 		return new ResponseEntity(lPersonasNoAsignadas, HttpStatus.OK);
 	}
 
+	@RequestMapping(value="/Asignacion", method=RequestMethod.GET ) 
+	public ResponseEntity<RegistroAsignacion> showAsig(){
+		List<RegistroAsignacion> llAsig= asignacionServiceImpl.ShowAsig();
+		return new ResponseEntity(llAsig,HttpStatus.OK);
+		
+	}
 }
