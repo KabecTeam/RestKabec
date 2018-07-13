@@ -3,6 +3,7 @@ import {HttpClient,HttpHeaders,HttpResponse} from '@angular/common/http';
 import {PagosAnexos} from '../modelos/pagos-anexos';
 import {Observable} from 'rxjs/Observable';
 import {Anexo} from '../modelos/anexo';
+import {RegistroAsignacion} from '../modelos/registro-asignacion';
 
 const httpOptions = {
 	headers: new HttpHeaders({ "Content-Type": "Application/Json" })
@@ -32,5 +33,9 @@ export class PagosAnexosService {
 
 	pagarAnexo(pagoAnexo: PagosAnexos ){
 		return this._http.post(this.urlReportePagos + 'addPagoAnexo', pagoAnexo, httpOptions);
+	}
+
+	getAllRegistros():Observable<any>{
+		return this._http.get<RegistroAsignacion>(this.urlReportePagos + 'Asignacion');
 	}
 }

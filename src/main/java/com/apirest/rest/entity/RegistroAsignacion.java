@@ -30,7 +30,7 @@ public class RegistroAsignacion {
 	private Integer idRegistroAsignacion;
 	
 	@JsonProperty("idCliente")
-	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "nombreCliente")
+	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idCliente")
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="idCliente",nullable=false)
 	private Cliente cliente;
@@ -70,9 +70,7 @@ public class RegistroAsignacion {
 	@JoinColumn(name="idGerenteComercial",nullable=false)
 	private GerenteComercial gerenteComercial;
 	
-	@JsonProperty("idpersona")
-	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "nombre")
-    @JsonIdentityReference(alwaysAsId = true)
+	
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="idpersona",nullable=false)
 	private Personas persona;
@@ -111,9 +109,11 @@ public class RegistroAsignacion {
 	@Column(name="propuestaEconomica",nullable=false)
 	private String propuestaEconomica;
 		
-	
+	@JsonProperty("idanexo")
+	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idanexo")
+    @JsonIdentityReference(alwaysAsId = true)
 	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="idAnexo",nullable=false)
+	@JoinColumn(name="idanexo",nullable=false)
 	private Anexo anexo;
 	
 	

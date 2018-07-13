@@ -16,12 +16,13 @@ export class RegistroAsignacion {
 	idGerente: any;
 	idLider: any;
 	idPerfil: any;
-	idpersona: any;
+	persona: any;
 	Anexo: any;
 
 
 	constructor(){
-		this.idpersona={
+		this.persona={
+			idpersona:'',
 			nombre: '',
 			apellidoPaterno: '',
 			apellidoMaterno: '',

@@ -3,27 +3,35 @@ package com.apirest.rest.controller;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.apirest.rest.entity.Area;
 import com.apirest.rest.entity.CalendarioPagos;
 import com.apirest.rest.serviceImp.CalendarioPagosServImpl;
 
 
 @RestController
 @CrossOrigin(allowedHeaders="*")
-public class CalendarioPagosController implements Comparable<CalendarioPagos>{
+public class CalendarioPagosController {
 
+	Map<String, String> errors;
 	
 	@Autowired
 	@Qualifier("calendarioPagosServImpl")
@@ -81,12 +89,36 @@ public class CalendarioPagosController implements Comparable<CalendarioPagos>{
 		
 		
 	}
-
-
-
-	@Override
-	public int compareTo(CalendarioPagos o) {
-		// TODO Auto-generated method stub
-		return 0;
+	
+	
+	@RequestMapping(value="/addPagoAnexo", method=RequestMethod.POST )
+	public ResponseEntity<CalendarioPagos> addArea(@Valid @RequestBody CalendarioPagos calendarioPagosRecibidos,BindingResult bindingResult){
+		
+		if(bindingResult.hasErrors()){
+			errors= new HashMap<>();
+			for(FieldError error:bindingResult.getFieldErrors()){
+				errors.put(error.getField(), error.getDefaultMessage());
+			}
+			return new ResponseEntity(errors,HttpStatus.NOT_ACCEPTABLE);
+		}else{
+			
+			List<CalendarioPagos> pagos= calendarioPagosServImpl.pagos();
+			List<CalendarioPagos> pagosAnexo= new ArrayList<CalendarioPagos>();
+			
+			for(CalendarioPagos pagoAnexo :pagos){
+				if(pagoAnexo.getAnexo().getIdanexo()== calendarioPagosRecibidos.getAnexo().getIdanexo())
+				{
+					if(pagoAnexo.getPersona().getIdpersona()==calendarioPagosRecibidos.getPersona().getIdpersona()){
+						pagosAnexo.add(pagoAnexo);
+					}
+					
+				}
+				
+			}
+			
+			Area addArea = areaServiceImpl.addArea(area);
+			return new ResponseEntity(addArea,HttpStatus.OK);
+		}
 	}
+
 }
