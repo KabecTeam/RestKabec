@@ -13,6 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,7 +22,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
-@Table(name="anexo")
+@Table(name="anexo",uniqueConstraints=@UniqueConstraint
+(columnNames={"idanexo"}))
 public class Anexo {
 
 	@Id
@@ -35,23 +37,29 @@ public class Anexo {
 	@JoinColumn(name="idCliente",nullable=false)
 	private Cliente cliente;
 	
+	
 	@Column(name="anexooc",length=200)
 	private String anexooc;
 	
+
 	@Column(name="descripcion",length=200)
 	private String descripcion;
+	
 	
 	@Column(name="fechaInicio",length=20)
 	private String fechaInicio;
 	
+
 	@Column(name="fechaFin",length=20)
 	private String fechaFin;
 	
+
 	@Column(name="tarifa")
 	private Float tarifa;
 	
 	@Column(name="numeropagos")
 	private int numeropagos;
+	
 	
 	@Column(name="vobo",length=50)
 	private String vobo;

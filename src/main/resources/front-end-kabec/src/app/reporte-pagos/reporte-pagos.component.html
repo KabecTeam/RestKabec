@@ -1,9 +1,10 @@
-
-
+<div *ngFor="let pagoAnexo of pagosAnexos">
+<p>{{pagoAnexo.anexo.idanexo}}</p>
 <table class="table">
 	<thead class="thead-dark">
 		<tr>
 			<th >Anexo</th>
+			<th>id Persona</th>
 			<th>Nombre Consultor</th>
 			<th>Fecha Inicio Facturacion</th>
 			<th>Fecha Inicio Pago</th>
@@ -18,7 +19,8 @@
 	</thead>
 	<tbody>
 		<tr *ngFor="let pagoAnexo of pagosAnexos">
-				<td>{{pagoAnexo.idanexo}}</td>
+				<td>{{pagoAnexo.anexo.idanexo}}</td>
+				<td>{{pagoAnexo.persona.idpersona}}</td>
 				<td>{{pagoAnexo.persona.nombre}} {{pagoAnexo.persona.apellidoPaterno}} {{pagoAnexo.persona.apellidoMaterno}}</td>
 				<td>{{pagoAnexo.fechainiciofactura}}</td>
 				<td>{{pagoAnexo.fechainiciopago}}</td>
@@ -33,3 +35,4 @@
 		</tr>
 	</tbody>
 </table>
+</div>

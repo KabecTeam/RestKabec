@@ -10,20 +10,35 @@ export class PagosAnexos {
 	numeropago: any;
 	pagosfaltantes: any;
 	saldo: any;
-	idanexo: any;
-	idFactura: any;
-	idperiodo: any;
+	anexo: any;
+	factura: any;
+	Periodo: any;
 	persona: any;
 	
 
 	constructor(){
 		this.persona={
 			idpersona:'',
-			nombre:'',
-			apellidoPaterno:'',
-			apellidoMaterno:'',
 
 
 		}
+
+		this.anexo = {
+			idanexo: ''
+
+		}
+		this.Periodo={
+			idperiodo:''
+		}
+
+		this.factura={
+			idfactura:''
+		}
+	}
+
+
+
+	public set periodo(v : string) {
+		this.Periodo = v;
 	}
 }

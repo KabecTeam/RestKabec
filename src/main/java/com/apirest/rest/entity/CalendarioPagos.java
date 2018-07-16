@@ -13,18 +13,22 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name="calendariopagos")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class CalendarioPagos {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int idpago;
 	
-	@JsonIgnore
+	@JsonProperty("persona")
+	@JsonIdentityInfo(generator= ObjectIdGenerators.PropertyGenerator.class, property="idpersona")
+	@JsonIdentityReference(alwaysAsId = true)
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="consultor",nullable=false)
 	private Personas personas;
@@ -42,7 +46,9 @@ public class CalendarioPagos {
 	@Column(name="fechapago",length=20)
 	private String fechapago;
 	
-	@JsonIgnore
+	
+	@JsonIdentityInfo(generator= ObjectIdGenerators.PropertyGenerator.class, property="idfactura")
+	@JsonIdentityReference(alwaysAsId = true)
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="idfactura",nullable=false)
 	private Facturas facturas;
@@ -73,9 +79,8 @@ public class CalendarioPagos {
 	@Column(name="montopago",nullable=true)
 	private int montopago;
 	
-	@JsonProperty("idanexo")
+	@JsonProperty("anexo")
 	@JsonIdentityInfo(generator= ObjectIdGenerators.PropertyGenerator.class, property="idanexo")
-	@JsonIdentityReference(alwaysAsId = true)
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="idanexo",nullable=false)
 	private Anexo anexo;

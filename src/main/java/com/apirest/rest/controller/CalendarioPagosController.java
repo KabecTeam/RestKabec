@@ -22,7 +22,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.apirest.rest.entity.Area;
 import com.apirest.rest.entity.CalendarioPagos;
 import com.apirest.rest.serviceImp.CalendarioPagosServImpl;
 
@@ -37,7 +36,7 @@ public class CalendarioPagosController {
 	@Qualifier("calendarioPagosServImpl")
 	private CalendarioPagosServImpl calendarioPagosServImpl;
 	
-	
+	List<CalendarioPagos> ordenIdConsultor= new ArrayList<CalendarioPagos>();
 
 	@RequestMapping(value="/showPagosAnexos", method=RequestMethod.GET)
 	public ResponseEntity<CalendarioPagos> muestraPagos(){
@@ -83,6 +82,8 @@ public class CalendarioPagosController {
 		Iterator<CalendarioPagos> preOrdenIdConsultorPagos = ordenIdConsultor.iterator();
 		preOrdenIdConsultorPagos.forEachRemaining(ordenIdConsultorPago::add);
 		
+		int pago= ordenIdConsultorPago.size();
+		System.out.println(pago);
 		return new ResponseEntity(ordenIdConsultorPago,HttpStatus.OK);
 		
 		
@@ -92,7 +93,95 @@ public class CalendarioPagosController {
 	
 	
 	@RequestMapping(value="/addPagoAnexo", method=RequestMethod.POST )
-	public ResponseEntity<CalendarioPagos> addArea(@Valid @RequestBody CalendarioPagos calendarioPagosRecibidos,BindingResult bindingResult){
+	public ResponseEntity<CalendarioPagos> creaPago( @RequestBody CalendarioPagos calendarioPagosRecibidos,BindingResult bindingResult){
+		
+		if(bindingResult.hasErrors()){
+			errors= new HashMap<>();
+			for(FieldError error:bindingResult.getFieldErrors()){
+				errors.put(error.getField(), error.getDefaultMessage());
+				System.out.println("error en el for");
+			}
+			System.out.println("error response");
+			return new ResponseEntity(errors,HttpStatus.NOT_ACCEPTABLE);
+			
+		}else{
+			
+			List<CalendarioPagos> pagos= calendarioPagosServImpl.pagos();
+			List<CalendarioPagos> pagosAnexo= new ArrayList<CalendarioPagos>();
+			List<CalendarioPagos> ordenIdPago= new ArrayList<CalendarioPagos>();
+			for(CalendarioPagos pagoAnexo:pagos){
+				if(pagoAnexo.getAnexo().getIdanexo()== calendarioPagosRecibidos.getAnexo().getIdanexo())
+				{
+					System.out.println("entro");
+					System.out.println(calendarioPagosRecibidos);
+					System.out.println("idanexorecibido:"+calendarioPagosRecibidos.getAnexo().getIdanexo());
+					System.out.println("idanexo:"+pagoAnexo.getAnexo().getIdanexo());
+					System.out.println("idpersonarecibido:"+calendarioPagosRecibidos.getPersona().getIdpersona());
+					if(pagoAnexo.getPersona().getIdpersona()==calendarioPagosRecibidos.getPersona().getIdpersona()){
+						pagosAnexo.add(pagoAnexo);
+						System.out.println("idpersonarecibido:"+calendarioPagosRecibidos.getPersona().getIdpersona());
+						System.out.println("idpersona:"+pagoAnexo.getPersona().getIdpersona());
+						System.out.println("pagos Coinciden"+pagosAnexo.size());
+					}
+					
+				}
+				
+			}
+			
+		
+			Collections.sort(pagosAnexo,new Comparator<CalendarioPagos>(){
+			
+				@Override
+				public int compare(CalendarioPagos p1, CalendarioPagos p2) {
+					return new Integer(p1.getIdpago()).compareTo(new Integer(p2.getIdpago()));
+				}
+			});
+			
+			Iterator<CalendarioPagos> preOrdenIdPagos = pagosAnexo.iterator();
+			preOrdenIdPagos.forEachRemaining(ordenIdPago::add);
+			
+			int numeroUltimoPago= ordenIdPago.size();
+			System.out.println("size ultimo Pago"+ numeroUltimoPago);
+			CalendarioPagos ultimoPago= ordenIdPago.get(numeroUltimoPago-1);
+			System.out.println("id ultimo pago"+ ultimoPago.getIdpago());
+			CalendarioPagos pagoACalendrioPagos = calendarioPagosRecibidos;
+			int montoPago=calendarioPagosRecibidos.getMontopago();
+			int importe=ultimoPago.getImporte();
+			
+			pagoACalendrioPagos.setDeuda(ultimoPago.getDeuda());
+			pagoACalendrioPagos.setFechafacturacion(calendarioPagosRecibidos.getFechafacturacion());
+			pagoACalendrioPagos.setFechainiciofactura(ultimoPago.getFechainiciofactura());
+			pagoACalendrioPagos.setFechainiciopago(calendarioPagosRecibidos.getFechainiciopago());
+			pagoACalendrioPagos.setFechapago(calendarioPagosRecibidos.getFechapago());
+			pagoACalendrioPagos.setImporte(ultimoPago.getImporte());
+			pagoACalendrioPagos.setMontopago(calendarioPagosRecibidos.getMontopago());
+			
+			if(montoPago>importe){
+				int calPagosFaltantes=montoPago/importe;
+				int numeroPagos=ultimoPago.getNumeropago();
+				pagoACalendrioPagos.setPagosfaltantes(numeroPagos-calPagosFaltantes);
+			}else{
+				pagoACalendrioPagos.setPagosfaltantes(ultimoPago.getPagosfaltantes()-1);
+			}
+			pagoACalendrioPagos.setNumeropago(ultimoPago.getNumeropago()+1);
+			
+			pagoACalendrioPagos.setSaldo(ultimoPago.getSaldo()-calendarioPagosRecibidos.getMontopago());
+			pagoACalendrioPagos.setAnexo(calendarioPagosRecibidos.getAnexo());
+			pagoACalendrioPagos.setFacturas(calendarioPagosRecibidos.getFacturas());
+			pagoACalendrioPagos.setPeriodo(ultimoPago.getPeriodo());
+			pagoACalendrioPagos.setPersona(calendarioPagosRecibidos.getPersona());
+			
+			
+			
+			
+			
+			CalendarioPagos addCalendarioPagos= calendarioPagosServImpl.registroPagoAnexo(pagoACalendrioPagos);
+			return new ResponseEntity(addCalendarioPagos,HttpStatus.OK);
+		}
+	}
+	
+	@RequestMapping(value="/PagoAnexo", method=RequestMethod.POST )
+	public ResponseEntity<CalendarioPagos> crearPago( @RequestBody CalendarioPagos calendarioPagosRecibidos,BindingResult bindingResult){
 		
 		if(bindingResult.hasErrors()){
 			errors= new HashMap<>();
@@ -102,22 +191,8 @@ public class CalendarioPagosController {
 			return new ResponseEntity(errors,HttpStatus.NOT_ACCEPTABLE);
 		}else{
 			
-			List<CalendarioPagos> pagos= calendarioPagosServImpl.pagos();
-			List<CalendarioPagos> pagosAnexo= new ArrayList<CalendarioPagos>();
-			
-			for(CalendarioPagos pagoAnexo :pagos){
-				if(pagoAnexo.getAnexo().getIdanexo()== calendarioPagosRecibidos.getAnexo().getIdanexo())
-				{
-					if(pagoAnexo.getPersona().getIdpersona()==calendarioPagosRecibidos.getPersona().getIdpersona()){
-						pagosAnexo.add(pagoAnexo);
-					}
-					
-				}
-				
-			}
-			
-			Area addArea = areaServiceImpl.addArea(area);
-			return new ResponseEntity(addArea,HttpStatus.OK);
+			CalendarioPagos addCalendarioPagos= calendarioPagosServImpl.registroPagoAnexo(calendarioPagosRecibidos);
+			return new ResponseEntity(addCalendarioPagos,HttpStatus.OK);
 		}
 	}
 
