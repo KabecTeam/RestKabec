@@ -68,9 +68,8 @@ public class CalendarioPagos {
 	@Column(name="saldo")
 	private int saldo;
 	
-	@JsonProperty("Periodo")
+	@JsonProperty("periodo")
 	@JsonIdentityInfo(generator= ObjectIdGenerators.PropertyGenerator.class, property="idperiodo")
-	@JsonIdentityReference(alwaysAsId = true)
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="idperiodo",nullable=true)
 	private Periodo periodo;
@@ -79,8 +78,8 @@ public class CalendarioPagos {
 	@Column(name="montopago",nullable=true)
 	private int montopago;
 	
-	@JsonProperty("anexo")
-	@JsonIdentityInfo(generator= ObjectIdGenerators.PropertyGenerator.class, property="idanexo")
+
+
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="idanexo",nullable=false)
 	private Anexo anexo;

@@ -1,3 +1,33 @@
-<p>
-  anexo works!
-</p>
+<div>
+	<h2>Anexos</h2>
+
+	<table class="table-list">
+		<thead>
+			<tr>
+				<th>Anexo ú Orden de Compra</th>
+				<th>Clave Presupuestal</th>
+				<th>Fecha de Inicio</th>
+				<th>Fecha de Fin</th>
+				<th>importe del Anexo</th>
+				<th>Monto por Pago</th>
+				<th>Numero de Pagos</th>
+				<th>Cliente</th>
+				<th>Periodo</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let anexo of anexos">
+				<td>{{anexo.anexooc}}</td>
+				<td>{{anexo.clavepresupuestal}}</td>
+				<td>{{anexo.fechaInicio}}</td>
+				<td>{{anexo.fechaFin}}</td>
+				<td>{{anexo.importeanexo}}</td>
+				<td>{{anexo.montoxpago}}</td>
+				<td>{{anexo.numeropagos}}</td>
+				<td>{{anexo.Cliente.nombreCliente}}</td>
+				<td>{{anexo.idperiodo.periodo}}</td>
+				<td><input type="button" name="eliminar" (click)="deleteanexo(anexo)" value="eliminar"class="btn btn-success">
+			</tr>
+		</tbody>
+	</table>
+</div>

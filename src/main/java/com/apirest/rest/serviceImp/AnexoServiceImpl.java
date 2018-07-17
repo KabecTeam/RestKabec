@@ -28,8 +28,8 @@ public class AnexoServiceImpl implements AnexosService {
 	}
 
 	@Override
-	public void addanexo(Anexo anexo) {
-		// TODO Auto-generated method stub
+	public Anexo addanexo(Anexo anexo) {
+		return anexoRepository.save(anexo);
 		
 	}
 

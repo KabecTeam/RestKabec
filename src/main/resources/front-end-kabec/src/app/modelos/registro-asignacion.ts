@@ -21,11 +21,11 @@ export class RegistroAsignacion {
 
 
 	constructor(){
-		this.persona={
-			idpersona:'',
+		this.persona = {
+			idpersona: '',
 			nombre: '',
 			apellidoPaterno: '',
 			apellidoMaterno: '',
-		}
+		};
 	}
 }

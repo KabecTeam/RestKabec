@@ -1,3 +1,98 @@
-<p>
-  add-anexo works!
-</p>
+<form (ngSubmit)="agregarAnexo()">
+
+	<div class="form-group">
+			<label for="anexooc" class="col-4 col-form-label" style="display: inline;">Anexo ú Orden de Compra</label>
+			<div class="col-10">
+				<input class="col-mb-4 form-control"  type="text" name="anexooc" [(ngModel)]="anexo.anexooc">	
+			</div>
+	</div>
+
+	<div class="form-group">
+			<label for="clavepresupuestal" class="col-4 col-form-label" style="display: inline;">Clave Presupuestal</label>
+			<div class="col-10">
+				<input class="col-mb-4 form-control"  type="text" name="clavepresupuestal" [(ngModel)]="anexo.clavepresupuestal">	
+			</div>
+	</div>
+
+	<div class="form-group">
+			<label for="condicionespago" class="col-4 col-form-label" style="display: inline;">Condiciones de Pago</label>
+			<div class="col-10">
+				<textarea class="col-mb-4 form-control"  aria-label="With textarea" [(ngModel)]="anexo.condicionespago" [ngModelOptions]="{standalone: true}"></textarea> 
+			</div>
+	</div>
+
+	<div class="form-group">
+			<label for="condicionespago" class="col-4 col-form-label" style="display: inline;">Descripción</label>
+			<div class="col-10">
+				<textarea class="col-mb-4 form-control"  aria-label="With textarea" [(ngModel)]="anexo.descripcion" [ngModelOptions]="{standalone: true}"></textarea> 
+			</div>
+	</div>
+
+	<div class="form-group">
+			<label for="fechainicio" class="col-4 col-form-label" style="display: inline;">Fecha de Inicio del Anexo</label>
+			<div class="col-10">
+				<input class="col-mb-4 form-control"  type="text" name="fechainicio" [(ngModel)]="anexo.fechaInicio">	
+			</div>
+	</div>
+	<div class="form-group">
+			<label for="fechafin" class="col-4 col-form-label" style="display: inline;">Fecha de Termino del Anexo</label>
+			<div class="col-10">
+				<input class="col-mb-4 form-control"  type="text" name="fechafin" [(ngModel)]="anexo.fechaFin">	
+			</div>
+	</div>
+
+	<div class="form-group">
+		<label for="importeanexo" class="col-4 col-form-label" style="display: inline;">Cantidad Total del Anexo</label>
+		<div class="col-10">
+			<input class="col-mb-4 form-control"  type="text" name="importeanexo" [(ngModel)]="anexo.importe">	
+		</div>
+
+	</div>
+
+	<div class="form-group">
+		<label for="montoxpago" class="col-4 col-form-label" style="display: inline;">Tarifa</label>
+		<div class="col-10">
+			<input class="col-mb-4 form-control"  type="text" name="montoxpago" [(ngModel)]="anexo.montoxpago">	
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="numeropagos" class="col-4 col-form-label" style="display: inline;">Numero de Pagos a Realizar</label>
+		<div class="col-10">
+			<input class="col-mb-4 form-control"  type="text" name="numeropagos" [(ngModel)]="anexo.numeropagos">	
+		</div>
+	</div>
+	
+	<div class="form-group">
+			<label for="observaciones" class="col-4 col-form-label" style="display: inline;">Observaciones</label>
+			<div class="col-10">
+				<textarea class="col-mb-4 form-control"  aria-label="With textarea" [(ngModel)]="anexo.observaciones" [ngModelOptions]="{standalone: true}"></textarea> 
+			</div>
+	</div>
+
+	<div class="form-group">
+		<label for="cliente" class="col-4 col-form-label">Cliente</label>
+		<div class="col-10">
+			<select name="cliente" class="custom-select" [(ngModel)]="anexo.Cliente.idCliente" >
+				<option [value]="cliente.idCliente" *ngFor="let cliente of clientes">{{cliente.nombreCliente}}</option>
+			</select>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="Anexo" class="col-4 col-form-label">Periodo</label>
+		<div class="col-10">
+			<select name="anexo" class="custom-select" [(ngModel)]="anexo.idperiodo.idperiodo" >
+				<option [value]="1" >Mensual</option>
+				<option [value]="2" >Bimestral</option>
+				<option [value]="3" >Trimestral</option>
+				<option [value]="4" >Cuatrimestral</option>
+				<option [value]="6" >Semestral</option>
+				<option [value]="12" >Anual</option>
+			</select>
+		</div>
+	</div>
+	<div class="form-group">
+	<input type="Submit" value="Agregar Anexo" class="btn btn-success">
+	</div>
+</form>

@@ -133,7 +133,7 @@ public class CalendarioPagosController {
 			
 				@Override
 				public int compare(CalendarioPagos p1, CalendarioPagos p2) {
-					return new Integer(p1.getIdpago()).compareTo(new Integer(p2.getIdpago()));
+					return new Integer(p2.getNumeropago()).compareTo(new Integer(p1.getNumeropago()));
 				}
 			});
 			
@@ -142,7 +142,7 @@ public class CalendarioPagosController {
 			
 			int numeroUltimoPago= ordenIdPago.size();
 			System.out.println("size ultimo Pago"+ numeroUltimoPago);
-			CalendarioPagos ultimoPago= ordenIdPago.get(numeroUltimoPago-1);
+			CalendarioPagos ultimoPago= ordenIdPago.get(0);
 			System.out.println("id ultimo pago"+ ultimoPago.getIdpago());
 			CalendarioPagos pagoACalendrioPagos = calendarioPagosRecibidos;
 			int montoPago=calendarioPagosRecibidos.getMontopago();
@@ -158,7 +158,7 @@ public class CalendarioPagosController {
 			
 			if(montoPago>importe){
 				int calPagosFaltantes=montoPago/importe;
-				int numeroPagos=ultimoPago.getNumeropago();
+				int numeroPagos=ultimoPago.getPagosfaltantes();
 				pagoACalendrioPagos.setPagosfaltantes(numeroPagos-calPagosFaltantes);
 			}else{
 				pagoACalendrioPagos.setPagosfaltantes(ultimoPago.getPagosfaltantes()-1);

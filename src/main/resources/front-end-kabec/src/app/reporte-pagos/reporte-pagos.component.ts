@@ -3,6 +3,7 @@ import {PagosAnexosService} from '../servicios/pagos-anexos.service';
 import {Router} from '@angular/router';
 import {PagosAnexos} from '../modelos/pagos-anexos';
 
+
 @Component({
   selector: 'app-reporte-pagos',
   templateUrl: './reporte-pagos.component.html',
@@ -10,15 +11,20 @@ import {PagosAnexos} from '../modelos/pagos-anexos';
 })
 export class ReportePagosComponent implements OnInit {
 	pagosAnexos: PagosAnexos[];
+	anexos: PagosAnexos[];
   constructor(private _router:Router, private _servicePagoAnexo: PagosAnexosService) { }
 
   ngOnInit() {
 
 	  this._servicePagoAnexo.getReport().subscribe(data=>{
 		  this.pagosAnexos = data;
-
 		  
 		  console.log(data);
+	  })
+
+	  this._servicePagoAnexo.getAllAnexos().subscribe(data=>{
+		  this.anexos = data;
+	  	 console.log(data);
 	  })
   }
 

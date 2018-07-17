@@ -38,4 +38,8 @@ export class PagosAnexosService {
 	getAllRegistros():Observable<any>{
 		return this._http.get<RegistroAsignacion>(this.urlReportePagos + 'Asignacion');
 	}
+
+	deleteanexo(anexo:Anexo){
+		return this._http.delete(this.urlAreas + 'delAnexo?idAnexo=' + anexo.idanexo)
+	}
 }

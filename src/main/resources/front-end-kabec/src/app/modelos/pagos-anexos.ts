@@ -17,19 +17,19 @@ export class PagosAnexos {
 	
 
 	constructor(){
-		this.persona={
-			idpersona:'',
+		this.persona = {
+			idpersona: '',
 
 
-		}
+		};
 
 		this.anexo = {
 			idanexo: ''
 
-		}
-		this.Periodo={
-			idperiodo:''
-		}
+		};
+		this.Periodo = {
+			idperiodo: ''
+		};
 
 		this.factura={
 			idfactura:''
@@ -38,7 +38,7 @@ export class PagosAnexos {
 
 
 
-	public set periodo(v : string) {
-		this.Periodo = v;
+	public set periodo(v : number) {
+		this.Periodo.idperiodo = v;
 	}
 }

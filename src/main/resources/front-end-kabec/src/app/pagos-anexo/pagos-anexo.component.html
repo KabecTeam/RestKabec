@@ -6,22 +6,14 @@
 				<option [value]="anexo.idanexo" *ngFor="let anexo of anexos">{{anexo.anexooc}}</option>
 			</select>
 		</div>
-	</div>		
+	</div>	
 
-	<div class="form-group" *ngFor="let anexo of anexos">
-			<div *ngIf="anexo.idanexo==pagoAnexo.anexo.idanexo">
-			<label for="periodo" class="col-4 col-form-label" style="display: inline;" >Periodo</label>
-			<div class="col-10" >
-				<input class="col-mb-4 form-control"  [value]="anexo.anexooc" type="text" name="periodo" [ngModel]="pagoAnexo.Periodo.idperiodo">	
-			</div>
-			</div>
-		</div>	
+			
 		<div class="container" style="border-color: grey; border:1px;" *ngFor="let registro of registros">
 			<div class="row" style="height: 55px" *ngIf="registro.idanexo==pagoAnexo.anexo.idanexo">
 				<div class="col-sm">
 					<label  for="idanexo" class="col col-form-label clearfix h-100" style="display: inline;">idConsultor:{{registro.persona.idpersona}}</label>
 				</div>
-
 				<div class="col-sm">
 					<label  for="idanexo" class="col-form-label clearfix" style="display: inline;">Nombre:{{registro.persona.nombre}} {{registro.persona.apellidoPaterno}} {{registro.persona.apellidoPaterno}}</label>
 				</div>
@@ -29,12 +21,11 @@
 		</div>
 
 		<div class="form-group">
-			<label for="id Consultor" class="col-4 col-form-label" style="display: inline;">id del Consultor</label>
+			<label for="idpersona" class="col-4 col-form-label" style="display: inline;">id del Consultor</label>
 			<div class="col-10">
-				<input class="col-mb-4 form-control"  type="text" name="persona" [ngModel]="pagoAnexo.persona.idpersona">	
+				<input class="col-mb-4 form-control"  type="text" name="idpersona" [(ngModel)]="pagoAnexo.persona.idpersona">	
 			</div>
 		</div>	
-
 		<div class="form-group">
 				<div class="col align-middle">
 					<label for="monto" class="col-form-label h-100" style="display: inline;">Monto por Consultor:</label>
@@ -43,28 +34,28 @@
 					<div class="input-group-prepend">
     					<span class="input-group-text" id="basic-addon1">$</span>
   					</div>
-  					<input class="col form-control"  type="text" name="monto" [ngModel]="pagoAnexo.montopago">
+  					<input class="col form-control"  type="text" name="monto" [(ngModel)]="pagoAnexo.montopago">
   				</div>
 		</div>
 
 		<div class="form-group">
 			<label for="factura" class="col-4 col-form-label" style="display: inline;">Factura</label>
 			<div class="col-10">
-				<input class="col-mb-4 form-control"  type="text" name="factura" [ngModel]="pagoAnexo.factura.idFactura">	
+				<input class="col-mb-4 form-control"  type="text" name="factura" [(ngModel)]="pagoAnexo.factura.idFactura">	
 			</div>
 		</div>
 
 		<div class="form-group">
 			<label for="fechaFacturacion" class="col-4 col-form-label" style="display: inline;">Fecha de Facturacion</label>
 			<div class="col-10">
-				<input class="col-mb-4 form-control"  type="text" name="fechaFacturacion" [ngModel]="pagoAnexo.fechafacturacion">	
+				<input class="col-mb-4 form-control"  type="text" name="fechaFacturacion" [(ngModel)]="pagoAnexo.fechafacturacion">	
 			</div>
 		</div>
 
 		<div class="form-group">
 			<label for="fechaPago" class="col-4 col-form-label" style="display: inline;">Fecha de Pago</label>
 			<div class="col-10">
-				<input class="col-mb-4 form-control"  type="text" name="fechaPago" [ngModel]="pagoAnexo.fechapago">	
+				<input class="col-mb-4 form-control"  type="text" name="fechaPago" [(ngModel)]="pagoAnexo.fechapago">	
 			</div>
 
 		</div>

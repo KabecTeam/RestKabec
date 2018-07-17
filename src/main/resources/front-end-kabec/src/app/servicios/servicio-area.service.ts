@@ -24,12 +24,12 @@ export class ServicioAreaService {
   }
 
   deleteArea(area: Area){
-  	return this._httpCliente.delete(this.urlAreas+'delArea?idArea='+area.idArea)
+	  return this._httpCliente.delete(this.urlAreas + 'delArea?idArea=' + area.idArea);
 
 	};
 
 	createArea(area:Area){
-		return this._httpCliente.post(this.urlAreas+'addArea',area,httpOptions)
+		return this._httpCliente.post(this.urlAreas + 'addArea', area, httpOptions);
 	}
 
 }

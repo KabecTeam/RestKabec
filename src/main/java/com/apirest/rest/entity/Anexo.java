@@ -22,17 +22,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
-@Table(name="anexo",uniqueConstraints=@UniqueConstraint
-(columnNames={"idanexo"}))
+@Table(name="anexo")
 public class Anexo {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int idanexo;
 	
-	@JsonProperty("Cliente")
-	@JsonIdentityInfo(generator= ObjectIdGenerators.PropertyGenerator.class, property="idCliente")
-	@JsonIgnoreProperties("nombreCliente")
+
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="idCliente",nullable=false)
 	private Cliente cliente;
@@ -79,8 +76,7 @@ public class Anexo {
 	@Column(name="montoxpago")
 	private int montoxpago;
 	
-	@JsonProperty("idperiodo")
-	@JsonIdentityInfo(generator= ObjectIdGenerators.PropertyGenerator.class, property="idperiodo")
+	
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="idperiodo",nullable=false)
 	private Periodo periodo;

@@ -1,5 +1,17 @@
-<div *ngFor="let pagoAnexo of pagosAnexos">
-<p>{{pagoAnexo.anexo.idanexo}}</p>
+<div *ngFor="let anexo of anexos">
+<p>{{anexo.anexooc}}</p>
+<p>{{anexo.clavepresupuestal}}</p>
+<p>{{anexo.descripcion}}</p>
+<p>{{anexo.fechaInicio}}</p>
+<p>{{anexo.fechaFin}}</p>
+<p>{{anexo.importeanexo}}</p>
+<p>{{anexo.montoxpago}}</p>
+<p>{{anexo.numeropagos}}</p>
+<p>{{anexo.Cliente}}</p>
+<p>{{anexo.periodo.idperiodo}}</p>
+
+
+
 <table class="table">
 	<thead class="thead-dark">
 		<tr>
@@ -17,8 +29,9 @@
 			<th >Saldo</th>		
 		</tr>
 	</thead>
-	<tbody>
-		<tr *ngFor="let pagoAnexo of pagosAnexos">
+	<p>anexo:{{anexo.idanexo}}</p>
+	<tbody *ngFor="let pagoAnexo of pagosAnexos">
+		<tr *ngIf="anexo.idanexo==pagoAnexo.anexo.idanexo">
 				<td>{{pagoAnexo.anexo.idanexo}}</td>
 				<td>{{pagoAnexo.persona.idpersona}}</td>
 				<td>{{pagoAnexo.persona.nombre}} {{pagoAnexo.persona.apellidoPaterno}} {{pagoAnexo.persona.apellidoMaterno}}</td>
@@ -35,4 +48,5 @@
 		</tr>
 	</tbody>
 </table>
+
 </div>
