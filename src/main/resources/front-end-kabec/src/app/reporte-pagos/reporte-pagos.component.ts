@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {PagosAnexosService} from '../servicios/pagos-anexos.service';
 import {Router} from '@angular/router';
 import {PagosAnexos} from '../modelos/pagos-anexos';
+import {RegistroAsignacion} from '../modelos/registro-asignacion';
 
 
 @Component({
@@ -12,6 +13,7 @@ import {PagosAnexos} from '../modelos/pagos-anexos';
 export class ReportePagosComponent implements OnInit {
 	pagosAnexos: PagosAnexos[];
 	anexos: PagosAnexos[];
+	registros: RegistroAsignacion[];
   constructor(private _router:Router, private _servicePagoAnexo: PagosAnexosService) { }
 
   ngOnInit() {
@@ -20,12 +22,25 @@ export class ReportePagosComponent implements OnInit {
 		  this.pagosAnexos = data;
 		  
 		  console.log(data);
+	  }, Error => {
+		  console.log(Error);
 	  })
 
 	  this._servicePagoAnexo.getAllAnexos().subscribe(data=>{
 		  this.anexos = data;
 	  	 console.log(data);
+	  }, Error => {
+		  console.log(Error);
 	  })
+
+	  this._servicePagoAnexo.getAllRegistros().subscribe(data => {
+		  this.registros = data;
+		  console.log(data);
+	  }, Error => {
+		  console.log(Error);
+	  });
+
+
   }
 
 }

@@ -26,9 +26,8 @@ public class CalendarioPagos {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int idpago;
 	
-	@JsonProperty("persona")
+	
 	@JsonIdentityInfo(generator= ObjectIdGenerators.PropertyGenerator.class, property="idpersona")
-	@JsonIdentityReference(alwaysAsId = true)
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="consultor",nullable=false)
 	private Personas personas;
@@ -48,7 +47,6 @@ public class CalendarioPagos {
 	
 	
 	@JsonIdentityInfo(generator= ObjectIdGenerators.PropertyGenerator.class, property="idfactura")
-	@JsonIdentityReference(alwaysAsId = true)
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="idfactura",nullable=false)
 	private Facturas facturas;

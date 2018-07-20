@@ -1,0 +1,19 @@
+<div class="col-md-6">
+<h2>Detalle Contrato Nomina</h2>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Id</th>
+    <th>Contrato Nomina</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let nomina of nominas">
+    <td>{{nomina.contratoNomina}}</td>
+    <td>{{nomina.tipoConNom}}</td>
+    <td><button class="btn btn-danger" (click)="deleteNomina(nomina)"> Borrar Contrato</button></td>
+  </tr>
+  </tbody>
+</table>
+</div>

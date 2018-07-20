@@ -40,6 +40,6 @@ export class PagosAnexosService {
 	}
 
 	deleteanexo(anexo:Anexo){
-		return this._http.delete(this.urlAreas + 'delAnexo?idAnexo=' + anexo.idanexo)
+		return this._http.delete(this.urlReportePagos + 'delAnexo?idAnexo=' + anexo.idanexo)
 	}
 }

@@ -1,0 +1,12 @@
+<div class="col-md-6">
+  <h2 class="text-center">Agregar Banco</h2>
+<form>
+  <div class="form-group">
+    <label for="nombreBanco">Nombre del Banco:</label>
+    <input type="text" [(ngModel)]="banco.nombreBanco" placeholder="Nombre del Banco" name="nombreBanco"
+    class="form-control" id="nombreBanco">
+  </div>
+
+  <button class="btn btn-success" (click)="createBanco()">Guardar Banco</button>
+</form>
+</div>

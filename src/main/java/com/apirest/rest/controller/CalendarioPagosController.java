@@ -151,7 +151,7 @@ public class CalendarioPagosController {
 			pagoACalendrioPagos.setDeuda(ultimoPago.getDeuda());
 			pagoACalendrioPagos.setFechafacturacion(calendarioPagosRecibidos.getFechafacturacion());
 			pagoACalendrioPagos.setFechainiciofactura(ultimoPago.getFechainiciofactura());
-			pagoACalendrioPagos.setFechainiciopago(calendarioPagosRecibidos.getFechainiciopago());
+			pagoACalendrioPagos.setFechainiciopago(ultimoPago.getFechainiciopago());
 			pagoACalendrioPagos.setFechapago(calendarioPagosRecibidos.getFechapago());
 			pagoACalendrioPagos.setImporte(ultimoPago.getImporte());
 			pagoACalendrioPagos.setMontopago(calendarioPagosRecibidos.getMontopago());

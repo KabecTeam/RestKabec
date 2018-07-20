@@ -10,11 +10,11 @@ import {Router} from '@angular/router';
 })
 export class ClienteComponent implements OnInit {
 	private clientes: Cliente[];
-  constructor(private _router:Router, private _servicioCLiente:ClienteService) { }
+  constructor(private _router:Router, private _servicioCliente:ClienteService) { }
 
   ngOnInit() {
 
-  	this._servicioCLiente.getAllClientes().subscribe(data=>{
+  	this._servicioCliente.getAllClientes().subscribe(data=>{
 			if (data.code != "200") {
 				console.log(data);
 				this.clientes = data;
@@ -24,6 +24,14 @@ export class ClienteComponent implements OnInit {
   	error=>{
   		console.log(error);
   	})
-  }
+  };
+
+  deleteCliente(cliente: Cliente){
+    this._servicioCliente.deleteCliente(cliente)
+      .subscribe(data => {
+        this.clientes = this.clientes.filter(u => u != cliente);
+      })
+
+  };
 
 }

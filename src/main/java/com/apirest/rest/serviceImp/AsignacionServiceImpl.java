@@ -18,7 +18,7 @@ public class AsignacionServiceImpl implements AsignadosService{
 
 	
 	@Autowired
-	@Qualifier("registroAsignacion")
+	@Qualifier("registroAsignacionRepository")
 	private RegistroAsignacionRepository registroAsignacionRepository; 
 	
 	

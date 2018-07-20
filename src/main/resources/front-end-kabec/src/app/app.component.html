@@ -1,3 +1,106 @@
-<div class="container" style="padding-top: 50px;">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="">Inicio<span class="sr-only">(current)</span></a>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Reportes
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="nav-link" routerLink="/contrato">Reporte de Contratos</a>
+           <div class="dropdown-divider"></div>
+          <a  class="dropdown-item" routerLink="/reporteAnexo">Reporte de Anexos</a>
+        </div>
+      </li>
+      
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Catalogo Areas
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a  class="dropdown-item" routerLink="/showAreas">Lista de Areas</a>
+           <div class="dropdown-divider"></div>
+          <a  class="dropdown-item" routerLink="/addAreas">Agregar Area</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Catalogo Clientes
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a  class="dropdown-item" routerLink="/ShowClientes">Lista de Clientes</a>
+           <div class="dropdown-divider"></div>
+          <a  class="dropdown-item" routerLink="/addClientes">Agregar Cliente</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Catalogo Anexos
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a  class="dropdown-item" routerLink="/ShowClientes">Lista de Anexos</a>
+           <div class="dropdown-divider"></div>
+          <a  class="dropdown-item" routerLink="/addClientes">Agregar Anexo</a>
+          <div class="dropdown-divider"></div>
+          <a  class="dropdown-item" routerLink="/pagoAnexo">Pago Anexo</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Catalogo Bancos
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a  class="dropdown-item" routerLink="/bancos">Lista de Bancos</a>
+           <div class="dropdown-divider"></div>
+          <a  class="dropdown-item" routerLink="/addbancos">Agregar Bancos</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Catalogo Contrato Nomina
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" routerLink="/nomina">Lista Contrato Nomina</a>
+           <div class="dropdown-divider"></div>
+          <a  class="dropdown-item" routerLink="/addnomina">Agregar Contrato Nomina</a>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Catalogo Usuarios
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" routerLink="/users">Lista de Usuarios</a>
+           <div class="dropdown-divider"></div>
+          <a class="dropdown-item" routerLink="/add">Agregar Usuario</a>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Catalogo Contrato Complemento
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" routerLink="/complemento">Lista Complemento</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" routerLink="/addcomplemento">Agregar Complemento</a>
+         
+        </div>
+      </li>
+
+
+    </ul>
+  </div>
+</nav>
+<div class="container">
 <router-outlet></router-outlet>
 </div>

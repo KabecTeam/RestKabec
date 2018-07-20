@@ -34,7 +34,7 @@ export class AddAnexoComponent implements OnInit {
     Error => {
       console.log(Error);
     })
-)
+
   }
 
 

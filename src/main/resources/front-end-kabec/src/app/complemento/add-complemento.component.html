@@ -1,0 +1,11 @@
+<div class="col-md-6">
+  <h2 class="text-center">Agregar Complemento</h2>
+<form>
+  <div class="form-group">
+    <label for="tipoComplemento">Tipo Complemento:</label>
+    <input type="text" [(ngModel)]="complemento.tipoComplemento" placeholder="Tipo Complemento" name="tipoComplemento"
+    class="form-control" id="tipoComplemento">
+  </div>
+  <button class="btn btn-success" (click)="createComplemento()">Guardar Complemento</button>
+</form>
+</div>

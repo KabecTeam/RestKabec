@@ -1,0 +1,31 @@
+      
+                  <table class="table-list">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Nombre</th>
+							<th>Perfil</th>
+							<th>Cliente</th>
+							<th>Area</th>
+							<th>Gerente</th>
+							<th>Gerente Comercial</th>
+							<th>Lider</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let asignado of asignados;let registroAsignado of registrosAsignados">
+							<div *ngIf="registroAsignado.persona.idpersona==asignado.idpersona">
+							<td>{{asignado.idpersona}}</td>
+							<td>{{asignado.nombre}} {{asignado.apellidoPaterno}} {{asignado.apellidoPaterno}}</td>
+							<td>{{registroAsignado.perfil}}</td>
+							<td>{{registroAsignado.idCliente}}</td>
+							<td>{{registroAsignado.idArea}}</td>
+							<td>{{registroAsignado.idGerente}}</td>
+							<td>{{registroAsignado.idGerenteComercial}}</td>
+							<td>{{registroAsignado.idLider}}</td>
+
+							</div>
+						</tr>
+					</tbody>
+				</table>
+				</div>

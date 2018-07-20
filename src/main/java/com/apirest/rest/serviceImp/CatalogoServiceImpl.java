@@ -7,13 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import com.apirest.rest.service.CatalogoService;
 import com.apirest.rest.entity.Bancos;
 import com.apirest.rest.entity.ContratoNomina;
 import com.apirest.rest.entity.EmpresaComplemento;
 import com.apirest.rest.repository.BancosRepository;
 import com.apirest.rest.repository.ContratoNominaRepository;
 import com.apirest.rest.repository.EmpresaComplementoRepository;
-import com.apirest.rest.service.CatalogoService;
+
 
 @Service("CatalogoServiceImpl")
 public class CatalogoServiceImpl implements CatalogoService{
@@ -41,11 +42,12 @@ public class CatalogoServiceImpl implements CatalogoService{
 		List<Bancos> banco=new ArrayList<Bancos>();
 		bancos.forEach(banco::add);
 		return banco;
+		//return bancosRepository.findAll();
 	}
 
 	@Override
 	public Bancos addByBanco(Bancos banco) {
-		return bancosRepository.saveAndFlush(banco);
+		return bancosRepository.save(banco);
 	}
 
 	@Override
@@ -57,19 +59,9 @@ public class CatalogoServiceImpl implements CatalogoService{
 	}
 
 	@Override
-	public Bancos findByBancos(Bancos bancos) {
-		return bancosRepository.getOne(String.valueOf(bancos));
-	}
-
-	@Override
-	public boolean isBancosExist(Bancos bancos) {
-		return bancosRepository.getOne(bancos.getIdBanco())!=null;
-	}
-
-	@Override
-	public Bancos updateBancos(Bancos bancos) {
-		bancosRepository.findById(bancos.getIdBanco());		
-		return null;
+	public Bancos updateBancos(Bancos bancos, int id) {
+		bancos=bancosRepository.getOne(id);
+		return bancosRepository.saveAndFlush(bancos);
 	}
 
 	@Override
@@ -96,28 +88,27 @@ public class CatalogoServiceImpl implements CatalogoService{
 		if(null!=contNomina){
 			contratoNominaRepository.delete(contNomina);	
 		}
-		
 	}
 
 	@Override
 	public ContratoNomina findConNomina(ContratoNomina contNomina) {
-		return contratoNominaRepository.getOne(String.valueOf(contNomina));
+		//return contratoNominaRepository.findOne(String.valueOf(contNomina));
+	return null;
 	}
 
 	@Override
 	public boolean isContNominaExist(ContratoNomina contNomina) {
 		return contratoNominaRepository.getOne(contNomina.getContratoNomina())!=null;
-	}
+		}
 
 	@Override
 	public ContratoNomina updateContNomina(ContratoNomina contNomina) {
-
 		return null;
 	}
 
 	@Override
 	public EmpresaComplemento findByIdEmpCompl(int id) {
-		return empresaComplementoRepository.getOne(id);
+		return empresaComplementoRepository.findByEmpComplemento(id);
 	}
 
 	@Override
@@ -126,16 +117,17 @@ public class CatalogoServiceImpl implements CatalogoService{
 		List<EmpresaComplemento> ListEmpCompl=new ArrayList<EmpresaComplemento>();
 		empComplemento.forEach(ListEmpCompl::add);
 		return ListEmpCompl;
+	
 	}
 
 	@Override
 	public EmpresaComplemento addEmpresaComplemento(EmpresaComplemento empresaComplemento) {
 		return empresaComplementoRepository.save(empresaComplemento);
-	}
+		}
 
 	@Override
 	public void deleteEmpreComple(int id) {
-		EmpresaComplemento empCompl=empresaComplementoRepository.getOne(id);
+		EmpresaComplemento empCompl=empresaComplementoRepository.findByEmpComplemento(id);
 		if(null!=empCompl){
 			empresaComplementoRepository.delete(empCompl);	
 		}
@@ -143,12 +135,13 @@ public class CatalogoServiceImpl implements CatalogoService{
 
 	@Override
 	public EmpresaComplemento findEmpreComple(EmpresaComplemento empresaComplemento) {
-		return empresaComplementoRepository.getOne(String.valueOf(empresaComplemento));
+		//return empresaComplementoRepository.findOne(String.valueOf(empresaComplemento));
+	return null;
 	}
 
 	@Override
 	public boolean isEmpreCompleExist(EmpresaComplemento empresaComplemento) {
-		return empresaComplementoRepository.getOne(empresaComplemento.getEmpComplemento())!=null;
+		return empresaComplementoRepository.findById(empresaComplemento.getEmpComplemento())!=null;
 	}
 
 	@Override

@@ -9,7 +9,7 @@ export class RegistroAsignacion {
 	horario: any;
 	propuestaEconomica: any;
 	ubicacionConsultor: any;
-	idAnexo: any;
+	idanexo: any;
 	idArea: any;
 	idCliente: any;
 	idGerenteComercial: any;
@@ -26,6 +26,7 @@ export class RegistroAsignacion {
 			nombre: '',
 			apellidoPaterno: '',
 			apellidoMaterno: '',
+			correo:''
 		};
 	}
 }

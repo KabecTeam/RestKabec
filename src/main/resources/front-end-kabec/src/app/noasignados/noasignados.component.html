@@ -1,0 +1,18 @@
+                  <table class="table-list">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Nombre</th>
+							<th>Correo</th>
+							<th>Telefono Celular</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let noasignado of noasignados">
+							<td>{{noasignado.idpersona}}</td>
+							<td>{{noasignado.nombre}} {{noasignado.apellidoPaterno}} {{noasignado.apellidoPaterno}}</td>
+							<td>{{noasignado.correo}}</td>
+							<td>{{noasignado.telparticular}}</td>
+						</tr>
+					</tbody>
+				</table>

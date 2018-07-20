@@ -1,0 +1,21 @@
+<div class="col-md-6">
+<h2> Detalles del Banco</h2>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Codigo de Banco</th>
+    <th>Nombre del Banco</th>
+  </tr>
+</thead>
+  <tbody>
+  <tr *ngFor="let banco of bancos">
+    <td>{{banco.idBanco}}</td>
+    <td>{{banco.nombreBanco}}</td>
+    <td></td>
+    <td></td>
+    <td><button class="btn btn-danger" (click)="deleteBanco(banco)"> Borrar Banco</button></td>
+  </tr>
+  </tbody>
+</table>
+</div>

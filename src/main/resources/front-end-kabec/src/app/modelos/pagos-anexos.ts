@@ -11,7 +11,7 @@ export class PagosAnexos {
 	pagosfaltantes: any;
 	saldo: any;
 	anexo: any;
-	factura: any;
+	facturas: any;
 	Periodo: any;
 	persona: any;
 	
@@ -31,7 +31,7 @@ export class PagosAnexos {
 			idperiodo: ''
 		};
 
-		this.factura={
+		this.facturas={
 			idfactura:''
 		}
 	}

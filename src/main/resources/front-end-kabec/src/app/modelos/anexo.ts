@@ -13,11 +13,11 @@ export class Anexo {
 	observaciones: any;
 	tarifa: any;
 	vobo: any;
-	Cliente: any;
+	cliente: any;
 	idperiodo: any;
 
   constructor(){
-	  this.Cliente = {
+	  this.cliente = {
 		  idCliente: '',
 		  nombreCliente: ''
 	  };

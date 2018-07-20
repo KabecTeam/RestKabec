@@ -1,21 +1,18 @@
-<div>
-	<h2>Areas</h2>
 
-	<table class="table-list">
-		<thead>
-			<tr>
-				<th>Id Area</th>
-				<th>Nombre Area</th>
-				<th>Cliente</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr *ngFor="let area of areas">
-				<td>{{area.idArea}}</td>
-				<td>{{area.nombreArea}}</td>
-				<td>{{area.Cliente}}</td>
-				<td><input type="button" name="eliminar" (click)="deleteArea(area)" value="eliminar"class="btn btn-success">
-			</tr>
-		</tbody>
-	</table>
-</div>
+                  <table class="table-list">
+					<thead>
+						<tr>
+							<th>Id Area</th>
+							<th>Nombre Area</th>
+							<th>Cliente</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let area of areas">
+							<td>{{area.idArea}}</td>
+							<td>{{area.nombreArea}}</td>
+							<td>{{area.Cliente}}</td>
+							<td><input type="button" name="eliminar" (click)="deleteArea(area)" value="eliminar"class="btn btn-success"></td>
+						</tr>
+					</tbody>
+				</table>

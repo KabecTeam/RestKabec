@@ -56,8 +56,7 @@ export class PagosAnexoComponent implements OnInit {
   pagoDeAnexo(){
 	this.pagoAnexo.periodo = 1;
   	this._servicioAnexo.pagarAnexo(this.pagoAnexo).subscribe(data=>{
-  		console.log(this.pagoAnexo);
-  		console.log(data);
+			alert("Pago Realizado con Éxito");
 
 	}, Error => {
   		console.log(Error);

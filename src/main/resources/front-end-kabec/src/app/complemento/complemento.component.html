@@ -1,0 +1,21 @@
+<div class="col-md-6">
+<h2> Detalles del Complemento</h2>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Codigo Complemento</th>
+    <th>Tipo Complemento</th>
+  </tr>
+</thead>
+  <tbody>
+  <tr *ngFor="let complemento of complementos">
+    <td>{{complemento.empComplemento}}</td>
+    <td>{{complemento.tipoComplemento}}</td>
+    <td></td>
+    <td></td>
+    <td><button class="btn btn-danger" (click)="deleteComplemento(complemento)">Borrar Complemento</button></td>
+  </tr>
+  </tbody>
+</table>
+</div>

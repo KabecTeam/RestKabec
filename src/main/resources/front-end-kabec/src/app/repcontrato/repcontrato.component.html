@@ -1,0 +1,66 @@
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+<div class="col-md-6" id="contrato">
+<h2>Reporte Estatus Contratos</h2>
+<td><button class="btn btn-danger" (click)="exportToExcel()">Excel</button></td>
+<!-- <td><button class="btn btn-danger" type="button" onclick="javascript:demoFromHTML()">PDF</button></td> -->
+<td><button class="btn btn-danger" type="button" (click)="downloadPDF()">PDF</button></td>
+<br>
+<div ng-app>
+  <h4>Selecciona alguna opción:
+  <select>
+    <option value="">Todas las opciones</option>
+    <option value="1">Contrato vencido</option>
+    <option value="0">Contrato por vencer</option>
+    <option value="0">Contrato vigente</option>
+  </select>
+</h4>
+</div>
+<br>
+<div id="contrato">
+<table class="table table-striped" id="tab_contrato" *ngIf="contratos">
+  <colgroup>
+            <col width="20%">
+                <col width="20%">
+                    <col width="20%">
+                        <col width="20%">
+        </colgroup>
+  <thead>
+  <tr class='warning'>
+    <th>Nombre del Consultor</th>
+    <th>Apellido Paterno</th>
+    <th>Apellido Materno</th>
+    <th>Área</th>
+    <th>Lider</th>
+    <th>Anexo</th>
+    <th>Numero de Consultor</th>
+    <th>Contrato Nomina</th>
+    <th>Fecha Inicio Nomina</th>
+    <th>Fecha Fin Nomina</th>
+    <th>Empresa Complemento</th>
+    <th>Fecha Fin Complemento</th>
+    <th>Estatus</th>
+
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let contrato of contratos">
+    <td>{{contrato.nombre}}</td>
+    <td>{{contrato.apellidoPaterno}}</td>
+    <td>{{contrato.apellidoMaterno}}</td>
+    <td>{{contrato.area}}</td>
+    <td>{{contrato.lider}}</td>
+    <td>{{contrato.anexo}}</td>
+    <td>{{contrato.numConsultor}}</td>
+    <td>{{contrato.contratoNomina}}</td>
+    <td>{{contrato.fechininomin}}</td>
+    <td>{{contrato.fechfinnomin}}</td>
+    <td>{{contrato.empresaComplemento}}</td>
+    <td>{{contrato.fechinicomp}}</td>
+    <td>{{contrato.estatus}}</td>
+
+  </tr>
+  </tbody>
+</table>
+</div>
+</div>

@@ -1,3 +1,9 @@
-<p>
-  d-cliente works!
-</p>
+<form (ngSubmit)="createCliente()">
+	<div class="form-group">
+		<label for="nombreCliente" class="col-4 col-form-label">Nombre del Cliente</label>
+		<div class="col-10">
+			<input type="text" [(ngModel)]="cliente.nombreCliente" class="form-control" name="nombreCliente" id="nombreCliente">
+		</div>
+	</div>
+	<input type="Submit" value="Crear" class="btn btn-success">
+</form>

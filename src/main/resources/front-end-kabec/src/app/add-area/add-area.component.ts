@@ -13,7 +13,7 @@ import { Cliente } from '../modelos/cliente';
 })
 export class AddAreaComponent implements OnInit {
 	
-	constructor(private _areaServicio: ServicioAreaService, private _clienteService: ClienteService) { }
+	constructor(private _router: Router,private _areaServicio: ServicioAreaService, private _clienteService: ClienteService) { }
   private area= new Area();
   private clientes: Cliente[];
   

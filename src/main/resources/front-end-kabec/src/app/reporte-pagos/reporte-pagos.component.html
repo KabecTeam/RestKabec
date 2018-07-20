@@ -1,52 +1,82 @@
-<div *ngFor="let anexo of anexos">
-<p>{{anexo.anexooc}}</p>
-<p>{{anexo.clavepresupuestal}}</p>
-<p>{{anexo.descripcion}}</p>
-<p>{{anexo.fechaInicio}}</p>
-<p>{{anexo.fechaFin}}</p>
-<p>{{anexo.importeanexo}}</p>
-<p>{{anexo.montoxpago}}</p>
-<p>{{anexo.numeropagos}}</p>
-<p>{{anexo.Cliente}}</p>
-<p>{{anexo.periodo.idperiodo}}</p>
+<div class="card" style="margin-bottom: 60px" *ngFor="let anexo of anexos let j= index">
+	<div class="card-header">
+    <h1>Anexo: {{anexo.anexooc}}</h1>
+  </div>
+  <div class="card-body">
+  <div class="container">
+  	<div class="row">
+  		<div class="col-md-4"><span>Clave Presupuestal: {{anexo.clavepresupuestal}}</span></div>
+  		<div class="col-md-4 offset-md-4">
+  			<div>Importe: ${{anexo.importeanexo}}</div>
+  			<div>Monto por Periodo:$ {{anexo.montoxpago}}</div>
+  			<div>Fecha Inicio: {{anexo.fechaInicio}}</div>
+  			<div>Fecha Fin: {{anexo.fechaFin}}</div>
+  			
+  			<div>Numero de Pagos: {{anexo.numeropagos}}</div>
+  			<div>Cliente: {{anexo.cliente.nombreCliente}}</div>
+  			<div>Periodo: {{anexo.periodo.periodo}}</div>
+  		</div>
+  	</div>
+  	<div class="row">
+  		<div class="col-md-4"><span>Descripción: {{anexo.descripcion}}</span></div>
+  	
 
+  	</div>
+  </div>
+</div>
+<div *ngFor="let registro of registros; let i=index">
+<div *ngIf="registro.idanexo==anexo.idanexo "></div>
+	
+	<div *ngIf="registro.idanexo==anexo.idanexo">
+		<div class="card-body">
+  			<div class="container" style="border-color:#c5cae9; border-top: solid  #c5cae9 1px;">
+  				<div class="row">
+  					<div class="col">
+  						<div>Id Cosultor: {{registro.persona.idpersona}}</div>
+  						<div>Nombre: {{registro.persona.nombre}} {{registro.persona.apellidoPaterno}} {{registro.persona.apellidoMaterno}}</div>
+  						<div>Perfil: {{registro.idPerfil}}</div>
+  						<div>Area: {{registro.idAreap}}</div>
+  						<div>Correo: {{registro.persona.correo}}</div>
+  						<div>Propuesta Economica: ${{registro.propuestaEconomica}}</div>
+  					</div>
+  				</div>
+  			</div>
+		</div>
 
-
-<table class="table">
-	<thead class="thead-dark">
+<div class="container">
+<table class="table table-sm  table-responsive-sm table-responsive-md table-responsive-lg">
+	<thead class="thead-ligth">
 		<tr>
-			<th >Anexo</th>
-			<th>id Persona</th>
-			<th>Nombre Consultor</th>
-			<th>Fecha Inicio Facturacion</th>
-			<th>Fecha Inicio Pago</th>
-			<th>Numero de Pago</th>
-			<th>Numero de Pagos Faltantes</th>
-			<th>Fechas de Pagos</th>
-			<th>Fechas de Facturacion</th>
-			<th>Factura</th>
-			<th>Monto de Pago</th>
-			<th >Saldo</th>		
+			<th scope="col" colspan="2">Numero de Pago</th>
+			<th scope="col" colspan="2" >Fecha Inicio Facturacion</th>
+			<th scope="col" colspan="2">Fecha Inicio Pago</th>
+			<th scope="col" colspan="2">Numero de Pagos Faltantes</th>
+			<th scope="col" colspan="2">Fechas de Pagos</th>
+			<th scope="col" colspan="2">Factura</th>
+			<th scope="col" colspan="2">Monto de Pago</th>
+			<th scope="col" colspan="2">Saldo</th>		
 		</tr>
 	</thead>
-	<p>anexo:{{anexo.idanexo}}</p>
 	<tbody *ngFor="let pagoAnexo of pagosAnexos">
-		<tr *ngIf="anexo.idanexo==pagoAnexo.anexo.idanexo">
-				<td>{{pagoAnexo.anexo.idanexo}}</td>
-				<td>{{pagoAnexo.persona.idpersona}}</td>
-				<td>{{pagoAnexo.persona.nombre}} {{pagoAnexo.persona.apellidoPaterno}} {{pagoAnexo.persona.apellidoMaterno}}</td>
-				<td>{{pagoAnexo.fechainiciofactura}}</td>
-				<td>{{pagoAnexo.fechainiciopago}}</td>
-				<td>{{pagoAnexo.numeropago}}</td>
-				<td>{{pagoAnexo.pagosfaltantes}}</td>
-				<td>{{pagoAnexo.fechapago}}</td>
-				<td>{{pagoAnexo.fechafacturaion}}</td>
-				<td>{{pagoAnexo.idfactura}}</td>
-				<td>{{pagoAnexo.montopago}}</td>
-				<td>{{pagoAnexo.saldo}}</td>
+		<tr *ngIf="registro.persona.idpersona==pagoAnexo.persona.idpersona && registro.idanexo==pagoAnexo.anexo.idanexo">
+				
+				<th scope="row" colspan="2">{{pagoAnexo.numeropago}}</th>
+				<td colspan="2">{{pagoAnexo.fechainiciofactura}}</td>
+				<td colspan="2">{{pagoAnexo.fechainiciopago}}</td>
+				<td colspan="2">{{pagoAnexo.pagosfaltantes}}</td>
+				<td colspan="2">{{pagoAnexo.fechapago}}</td>
+				<td colspan="2">{{pagoAnexo.facturas}}</td>
+				<td colspan="2">{{pagoAnexo.montopago}}</td>
+				<td colspan="2">{{pagoAnexo.saldo}}</td>
 				
 		</tr>
 	</tbody>
 </table>
-
 </div>
+</div>
+</div>
+</div>
+
+
+
+<ng-template #londing> Espere por favor...</ng-template>

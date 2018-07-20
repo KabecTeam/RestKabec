@@ -3,9 +3,9 @@ package com.apirest.rest.service;
 import java.util.List;
 
 import com.apirest.rest.entity.Bancos;
-import com.apirest.rest.entity.Cliente;
 import com.apirest.rest.entity.ContratoNomina;
 import com.apirest.rest.entity.EmpresaComplemento;
+
 
 public interface CatalogoService {
 
@@ -17,13 +17,9 @@ public interface CatalogoService {
 	
 	public void deleteBanco(int id);
 	
-	public abstract Bancos findByBancos(Bancos bancos);
+	public abstract Bancos updateBancos(Bancos bancos,int id); 
 	
-	public boolean isBancosExist(Bancos bancos);
-	
-	public abstract Bancos updateBancos(Bancos bancos); 
-	
-	public abstract ContratoNomina findByContNomina(int id);
+    public abstract ContratoNomina findByContNomina(int id);
 	
 	public abstract List<ContratoNomina> lisAllContNomina();
 	
@@ -50,8 +46,7 @@ public interface CatalogoService {
 	public boolean isEmpreCompleExist(EmpresaComplemento empresaComplemento);
 	
 	public abstract EmpresaComplemento updateEmprComplem(EmpresaComplemento empresaComplemento);
-	
 
-	
+
 	
 }

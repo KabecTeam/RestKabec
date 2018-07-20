@@ -1,3 +1,15 @@
-<p>
-  cliente works!
-</p>
+                  <table class="table-list">
+					<thead>
+						<tr>
+							<th>Id Cliente</th>
+							<th>Cliente</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let cliente of clientes">
+							<td>{{cliente.idcliente}}</td>
+							<td>{{cliente.nombreCliente}}</td>
+							<td><input type="button" name="eliminar" (click)="deleteCliente(cliente)" value="eliminar"class="btn btn-success"></td>
+						</tr>
+					</tbody>
+				</table>
