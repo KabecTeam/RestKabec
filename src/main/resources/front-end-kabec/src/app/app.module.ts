@@ -1,3 +1,4 @@
+import { NgxAdminLteModule } from 'ngx-admin-lte';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Router } from '@angular/router';
@@ -25,10 +26,9 @@ import { BancoComponent } from './banco/banco.component';
 import { BancoService } from './banco/banco.service';
 import { AddBancoComponent } from './banco/add-banco.component';
 
-import { NominaComponent } from './nomina/nomina.component';
 import { NominaService } from './nomina/nomina.service';
 import { AddNominaComponent } from './nomina/add-nomina.component';
-
+import { NominaComponent } from './nomina/nomina.component';
 
 import { ComplementoComponent } from './complemento/complemento.component';
 import { ComplementoService } from './complemento/complemento.service';
@@ -39,9 +39,10 @@ import { ContratoService } from './repcontrato/repcontrato.service';
 import { HeaderComponent } from './header/header.component';
 import { ReporteasignadosComponent } from './reporteasignados/reporteasignados.component';
 import { NoasignadosComponent } from './noasignados/noasignados.component';
-import {LayoutModule} from 'angular-admin-lte';
-import { adminLteConf } from './admin-lte.conf';
 
+import { LayoutModule } from 'angular-admin-lte';   
+import { BoxModule } from 'angular-admin-lte';   
+import { adminLteConf } from './admin-lte.conf'; 
 
 @NgModule({
   declarations: [
@@ -67,13 +68,17 @@ import { adminLteConf } from './admin-lte.conf';
     HeaderComponent,
     ReporteasignadosComponent,
     NoasignadosComponent,
+    
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgxAdminLteModule,
+    BoxModule,
+    LayoutModule.forRoot(adminLteConf)
   ],
   providers: [ServicioAreaService,
     PagosAnexosService, UserService, BancoService, NominaService, ComplementoService, ContratoService

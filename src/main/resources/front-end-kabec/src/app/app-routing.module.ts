@@ -22,7 +22,10 @@ import { ComplementoComponent } from './complemento/complemento.component';
 import { AddComplementoComponent } from './complemento/add-complemento.component';
 
 import { RepcontratoComponent } from './repcontrato/repcontrato.component';
+import { ReporteasignadosComponent } from './reporteasignados/reporteasignados.component';
 const routes: Routes = [
+	
+	{ path: 'reporteAsignados', component: ReporteasignadosComponent },
 	{ path: 'addCliente', component: DClienteComponent },
 	{path: 'addAreas', component: AddAreaComponent },
 	{path:'showAreas', component: AreaComponent},

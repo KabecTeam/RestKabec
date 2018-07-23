@@ -1,15 +1,16 @@
-                  <table class="table-list">
-					<thead>
+                  <table class="table table-sm  table-responsive-sm table-responsive-md table-responsive-lg">
+					<thead class="thead-ligth">
 						<tr>
-							<th>Id Cliente</th>
-							<th>Cliente</th>
+							<th scope="col" colspan="2">Id Cliente</th>
+							<th scope="col" colspan="2">Cliente</th>
+							<th scope="col" colspan="2"></th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr *ngFor="let cliente of clientes">
-							<td>{{cliente.idcliente}}</td>
-							<td>{{cliente.nombreCliente}}</td>
-							<td><input type="button" name="eliminar" (click)="deleteCliente(cliente)" value="eliminar"class="btn btn-success"></td>
+							<th scope="row" colspan="2">{{cliente.idCliente}}</th>
+							<td colspan="2">{{cliente.nombreCliente}}</td>
+							<td  colspan="2"><input type="button" name="eliminar" (click)="deleteCliente(cliente)" value="eliminar"class="btn btn-success"></td>
 						</tr>
 					</tbody>
 				</table>
