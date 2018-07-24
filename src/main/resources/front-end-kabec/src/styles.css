@@ -4,4 +4,14 @@
   @import "../node_modules/ionicons/dist/css/ionicons.css";
   @import "../node_modules/admin-lte/dist/css/skins/skin-blue.css";
   @import "../node_modules/admin-lte/dist/css/skins/skin-black.css";
-  @import "../node_modules/admin-lte-css/dist/css/skins/_all-skins.css"
+  @import "../node_modules/admin-lte-css/dist/css/skins/_all-skins.css";
+
+  
+.table-bordered > thead > tr > th,
+.table-bordered > tbody > tr > th,
+.table-bordered > tfoot > tr > th,
+.table-bordered > thead > tr > td,
+.table-bordered > tbody > tr > td,
+.table-bordered > tfoot > tr > td {
+  border-color: #eae3e3;
+}

@@ -21,16 +21,21 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              { "glob": "**/*", "input": "../node_modules/ngx-admin-lte/src/public/assets", "output": "./assets" }
+              { "glob": "**/*", "input": "./node_modules/ngx-admin-lte/src/public/assets", "output": "./assets" },
+              { "glob": "**/*", "input": "./node_modules/ngx-admin-lte/src/public/assets/img", "output": "./assets/img" },
+              { "glob": "**/*", "input": "./node_modules/ngx-admin-lte/src/public/assets/i18n", "output": "./assets/i18n" }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "./node_modules/prismjs/themes/prism-tomorrow.css",
               
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.js",
               "./node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "./node_modules/admin-lte/dist/js/adminlte.js"
+              "./node_modules/admin-lte/dist/js/adminlte.js",
+              "./node_modules/prismjs/prism.js",
+              "./node_modules/prismjs/components/prism-typescript.js"
             ]
           },
           "configurations": {

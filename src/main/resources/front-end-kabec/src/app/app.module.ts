@@ -1,15 +1,18 @@
 import { NgxAdminLteModule } from 'ngx-admin-lte';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule, Http } from '@angular/http';
 import { NgModule } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { ServicioAreaService } from './servicios/servicio-area.service';	
-import {IndexComponent} from './index/index.component';
-import {AreaComponent} from './area/area.component';
-import { AddAreaComponent } from './add-area/add-area.component';
 import {FormsModule} from '@angular/forms';
+import { CoreModule } from './core/core.module';
+
+import { AppComponent } from './app.component';
+import { ServicioAreaService } from './servicios/servicio-area.service';
+import { IndexComponent } from './index/index.component';
+import { AreaComponent } from './area/area.component';
+import { AddAreaComponent } from './add-area/add-area.component';
 import { ClienteComponent } from './cliente/cliente.component';
 import { DClienteComponent } from './d-cliente/d-cliente.component';
 import { PagosAnexoComponent } from './pagos-anexo/pagos-anexo.component';
@@ -19,7 +22,6 @@ import { AddAnexoComponent } from './add-anexo/add-anexo.component';
 import { AnexoComponent } from './anexo/anexo.component';
 //bryan
 import { UserComponent } from './user/user.component';
-import {UserService} from './user/user.service';
 import {AddUserComponent} from './user/add-user.component';
 
 import { BancoComponent } from './banco/banco.component';
@@ -43,9 +45,11 @@ import { NoasignadosComponent } from './noasignados/noasignados.component';
 import { LayoutModule } from 'angular-admin-lte';   
 import { BoxModule } from 'angular-admin-lte';   
 import { adminLteConf } from './admin-lte.conf'; 
+import { LoadingPageModule, MaterialBarModule } from 'angular-loading-page';
 
 @NgModule({
   declarations: [
+    //lAYOUTS
     AppComponent,
     IndexComponent,
     AreaComponent,
@@ -65,7 +69,6 @@ import { adminLteConf } from './admin-lte.conf';
     ComplementoComponent,
     AddComplementoComponent,
     RepcontratoComponent,
-    HeaderComponent,
     ReporteasignadosComponent,
     NoasignadosComponent,
     
@@ -78,10 +81,18 @@ import { adminLteConf } from './admin-lte.conf';
     FormsModule,
     NgxAdminLteModule,
     BoxModule,
-    LayoutModule.forRoot(adminLteConf)
+    LayoutModule.forRoot(adminLteConf), 
+    CoreModule,
+    LoadingPageModule, MaterialBarModule
+
   ],
-  providers: [ServicioAreaService,
-    PagosAnexosService, UserService, BancoService, NominaService, ComplementoService, ContratoService
+  providers: [
+      ServicioAreaService,
+      PagosAnexosService,  
+      BancoService, 
+      NominaService, 
+      ComplementoService, 
+      ContratoService
   ],
   bootstrap: [AppComponent]
 })
