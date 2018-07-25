@@ -4,6 +4,7 @@ import {AsignacionService} from '../servicios/asignacion.service';
 import {Persona} from '../modelos/persona';
 import {PagosAnexosService} from '../servicios/pagos-anexos.service';
 import {RegistroAsignacion} from '../modelos/registro-asignacion';
+import { LayoutService } from 'angular-admin-lte';
 @Component({
   selector: 'app-reporteasignados',
   templateUrl: './reporteasignados.component.html',

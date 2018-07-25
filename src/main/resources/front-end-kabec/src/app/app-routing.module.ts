@@ -23,17 +23,25 @@ import { AddComplementoComponent } from './complemento/add-complemento.component
 
 import { RepcontratoComponent } from './repcontrato/repcontrato.component';
 import { ReporteasignadosComponent } from './reporteasignados/reporteasignados.component';
+import {NoasignadosComponent} from './noasignados/noasignados.component';
+import {NuevoUsuario} from '../nuevousuario/nuevousuario.component';
+import {ConsultarUsuario} from './consultarusuario/consultarusuario.component';
+import {NuevoConsultor} from './nuevoconsultor/nuevoconsultor.component';
+import {BuscarConsultor} from './buscarconsultor/buscarconsultor.component';
+import {ConsultarBajas} from './consultarbajas/consultarbajas.component';
+
 const routes: Routes = [
 	
 	{ path: 'reporteAsignados', component: ReporteasignadosComponent },
+	{ path:'noasignados', component:NoasignadosComponent},
 	{ path: 'addCliente', component: DClienteComponent },
-	{path: 'addAreas', component: AddAreaComponent },
-	{path:'showAreas', component: AreaComponent},
-	{path:'ShowClientes',component:ClienteComponent},
-	{path:'reporteAnexo', component:ReportePagosComponent},
-	{path: 'pagoAnexo', component: PagosAnexoComponent},
-	{path: 'addAnexo', component: AddAnexoComponent},
-	{path:'showAnexos',component: AnexoComponent},
+	{ path: 'addAreas', component: AddAreaComponent },
+	{ path:'showAreas', component: AreaComponent},
+	{ path:'ShowClientes',component:ClienteComponent},
+	{ path:'reporteAnexo', component:ReportePagosComponent},
+	{ path: 'pagoAnexo', component: PagosAnexoComponent},
+	{ path: 'addAnexo', component: AddAnexoComponent},
+	{ path:'showAnexos',component: AnexoComponent},
 //bryan
 	{ path: 'users', component: UserComponent },
 	{ path: 'add', component: AddUserComponent },
@@ -47,12 +55,17 @@ const routes: Routes = [
 	{ path: 'complemento', component: ComplementoComponent },
 	{ path: 'addcomplemento', component: AddComplementoComponent },
 
-	{ path: 'contrato', component: RepcontratoComponent }
+	{ path: 'contrato', component: RepcontratoComponent },
+	{ path:'nuevousuario', component:NuevoUsuario, pathMatch:'full'},
+	{ path: 'consultarusuario', component: ConsultarUsuario, pathMatch: 'full' },
+	{ path:'nuevoconsultor', component:NuevoConsultor, pathMatch:'full'},
+	{ path: 'buscarconsultor', component: BuscarConsultor, pathMatch: 'full' },
+	{ path: 'consultarbajas', component: ConsultarBajas, pathMatch: 'full' },
 
 ];
 
 @NgModule({
 	imports: [RouterModule.forRoot(routes, { useHash: true })],
-  exports: [RouterModule]
+  	exports: [RouterModule]
 })
 export class AppRoutingModule { }

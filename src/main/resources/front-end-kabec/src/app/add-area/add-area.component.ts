@@ -5,7 +5,7 @@ import {Router} from '@angular/router';
 import {Form} from '@angular/forms';
 import { ClienteService } from '../servicios/cliente.service';
 import { Cliente } from '../modelos/cliente';
-
+import { LayoutService } from 'angular-admin-lte';
 @Component({
   selector: 'app-add-area',
   templateUrl: './add-area.component.html',

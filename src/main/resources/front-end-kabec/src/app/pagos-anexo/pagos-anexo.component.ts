@@ -4,6 +4,7 @@ import {PagosAnexos} from '../modelos/pagos-anexos';
 import {Router} from '@angular/router';
 import {Anexo} from '../modelos/anexo';
 import { RegistroAsignacion } from '../modelos/registro-asignacion';
+import { LayoutService } from 'angular-admin-lte';
 @Component({
   selector: 'app-pagos-anexo',
   templateUrl: './pagos-anexo.component.html',

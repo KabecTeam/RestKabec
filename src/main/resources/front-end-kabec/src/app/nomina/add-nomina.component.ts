@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { LayoutService } from 'angular-admin-lte';
 
 
 import { Nomina } from '../models/nomina.model';

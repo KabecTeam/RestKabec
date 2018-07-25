@@ -3,6 +3,7 @@ import {PagosAnexosService} from '../servicios/pagos-anexos.service';
 import {Router} from '@angular/router';
 import {PagosAnexos} from '../modelos/pagos-anexos';
 import {RegistroAsignacion} from '../modelos/registro-asignacion';
+import { LayoutService } from 'angular-admin-lte';
 
 
 @Component({

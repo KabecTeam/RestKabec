@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { Complemento } from '../models/complemento.model';
 import { ComplementoService } from './complemento.service';
+import { LayoutService } from 'angular-admin-lte';
 
 @Component({
   selector: 'app-complemento',

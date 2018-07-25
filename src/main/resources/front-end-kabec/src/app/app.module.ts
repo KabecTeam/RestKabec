@@ -8,9 +8,10 @@ import { AppRoutingModule } from './app-routing.module';
 import {FormsModule} from '@angular/forms';
 import { CoreModule } from './core/core.module';
 
+
 import { AppComponent } from './app.component';
 import { ServicioAreaService } from './servicios/servicio-area.service';
-import { IndexComponent } from './index/index.component';
+
 import { AreaComponent } from './area/area.component';
 import { AddAreaComponent } from './add-area/add-area.component';
 import { ClienteComponent } from './cliente/cliente.component';
@@ -38,7 +39,6 @@ import { AddComplementoComponent } from './complemento/add-complemento.component
 
 import { RepcontratoComponent } from './repcontrato/repcontrato.component';
 import { ContratoService } from './repcontrato/repcontrato.service';
-import { HeaderComponent } from './header/header.component';
 import { ReporteasignadosComponent } from './reporteasignados/reporteasignados.component';
 import { NoasignadosComponent } from './noasignados/noasignados.component';
 
@@ -46,12 +46,21 @@ import { LayoutModule } from 'angular-admin-lte';
 import { BoxModule } from 'angular-admin-lte';   
 import { adminLteConf } from './admin-lte.conf'; 
 import { LoadingPageModule, MaterialBarModule } from 'angular-loading-page';
+import {NuevoUsuario} from '../nuevousuario/nuevousuario.component';
+import {NuevoConsultor} from './nuevoconsultor/nuevoconsultor.component';
+import {ConsultarUsuario} from './consultarusuario/consultarusuario.component';
+import {BuscarConsultor} from './buscarconsultor/buscarconsultor.component';
+import {ConsultarBajas} from './consultarbajas/consultarbajas.component';
 
 @NgModule({
   declarations: [
     //lAYOUTS
+    ConsultarBajas,
+    BuscarConsultor,
+    NuevoConsultor,
+    ConsultarUsuario,
+    NuevoUsuario,
     AppComponent,
-    IndexComponent,
     AreaComponent,
     AddAreaComponent,
     ClienteComponent,

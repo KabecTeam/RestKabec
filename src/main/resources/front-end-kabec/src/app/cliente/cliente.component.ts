@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ClienteService} from '../servicios/cliente.service';
 import {Cliente} from '../modelos/cliente';
 import {Router} from '@angular/router';
+import { LayoutService } from 'angular-admin-lte';
 
 @Component({
   selector: 'app-cliente',

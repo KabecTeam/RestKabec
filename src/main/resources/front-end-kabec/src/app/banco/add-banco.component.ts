@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { Banco } from '../models/banco.model';
 import { BancoService } from './banco.service';
+import { LayoutService } from 'angular-admin-lte';
 
 @Component({
   templateUrl: './add-banco.component.html',

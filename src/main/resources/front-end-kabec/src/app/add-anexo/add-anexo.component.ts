@@ -4,6 +4,7 @@ import {PagosAnexosService} from '../servicios/pagos-anexos.service';
 import {Router} from '@angular/router';
 import {ClienteService} from '../servicios/cliente.service';
 import {Cliente} from '../modelos/cliente';
+import { LayoutService } from 'angular-admin-lte';
 @Component({
   selector: 'app-add-anexo',
   templateUrl: './add-anexo.component.html',

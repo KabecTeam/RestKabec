@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, EventEmitter, OnDestroy, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { LayoutService } from 'angular-admin-lte';
 import { Contrato,CONTRATOS } from '../models/contrato.model';
 import { ContratoService } from './repcontrato.service';
 

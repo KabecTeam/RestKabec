@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Anexo } from '../modelos/anexo';
 import { PagosAnexosService } from '../servicios/pagos-anexos.service';
 import { Router } from '@angular/router';
+import { LayoutService } from 'angular-admin-lte';
 @Component({
   selector: 'app-anexo',
   templateUrl: './anexo.component.html',
