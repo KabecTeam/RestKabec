@@ -1,5 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { LayoutService } from 'angular-admin-lte';
+import {IniSessionSreviceService} from '../servicios/ini-session-srevice.service';
 
 
 
@@ -11,12 +12,18 @@ import { LayoutService } from 'angular-admin-lte';
 })
 
 export class NuevoConsultor implements OnInit {
-
-	constructor() { }
+	ok: any;
+	constructor(private _iniSession: IniSessionSreviceService) { }
 
 	ngOnInit() {
 		
-		window.location.href = 'http://192.168.0.32:8080/Kabec/nuevoConsultor'
+		this._iniSession.Session().subscribe(data => {
+			console.log(data);
+			//window.location.href = 'http://192.168.0.32:8080/Kabec/nuevoConsultor';
+			return 'ok';
+		});
+		
+		
 		
 	}
 }

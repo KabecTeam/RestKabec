@@ -51,6 +51,8 @@ import {NuevoConsultor} from './nuevoconsultor/nuevoconsultor.component';
 import {ConsultarUsuario} from './consultarusuario/consultarusuario.component';
 import {BuscarConsultor} from './buscarconsultor/buscarconsultor.component';
 import {ConsultarBajas} from './consultarbajas/consultarbajas.component';
+import { GotoindexComponent } from './gotoindex/gotoindex.component';
+import { InisessionComponent } from './inisession/inisession.component';
 
 @NgModule({
   declarations: [
@@ -80,6 +82,8 @@ import {ConsultarBajas} from './consultarbajas/consultarbajas.component';
     RepcontratoComponent,
     ReporteasignadosComponent,
     NoasignadosComponent,
+    GotoindexComponent,
+    InisessionComponent,
     
 
   ],
