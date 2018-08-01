@@ -12,18 +12,14 @@ import {IniSessionSreviceService} from '../servicios/ini-session-srevice.service
 })
 
 export class NuevoConsultor implements OnInit {
-	ok: any;
-	constructor(private _iniSession: IniSessionSreviceService) { }
+
+	constructor() { }
 
 	ngOnInit() {
 		
-		this._iniSession.Session().subscribe(data => {
-			console.log(data);
+	
+			
 			//window.location.href = 'http://192.168.0.32:8080/Kabec/nuevoConsultor';
-			return 'ok';
-		});
-		
-		
 		
 	}
 }

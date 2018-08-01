@@ -14,8 +14,8 @@ import { LayoutService } from 'angular-admin-lte';
 export class AddAreaComponent implements OnInit {
 	
 	constructor(private _router: Router,private _areaServicio: ServicioAreaService, private _clienteService: ClienteService) { }
-  private area= new Area();
-  private clientes: Cliente[];
+  public area= new Area();
+  public clientes: Cliente[];
   
   ngOnInit() {
 

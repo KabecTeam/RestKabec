@@ -11,7 +11,7 @@ import {ServicioAreaService} from '../servicios/servicio-area.service';
   styleUrls: ['./area.component.css']
 })
 export class AreaComponent implements OnInit {
-  private areas: Area[];
+  public areas: Area[];
 
   constructor(private _router: Router, private _areaService:ServicioAreaService) { }
 

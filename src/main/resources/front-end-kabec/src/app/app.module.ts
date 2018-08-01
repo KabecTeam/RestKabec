@@ -53,7 +53,7 @@ import {BuscarConsultor} from './buscarconsultor/buscarconsultor.component';
 import {ConsultarBajas} from './consultarbajas/consultarbajas.component';
 import { GotoindexComponent } from './gotoindex/gotoindex.component';
 import { InisessionComponent } from './inisession/inisession.component';
-
+import {UrlConfigService} from './url-config.service';
 @NgModule({
   declarations: [
     //lAYOUTS
@@ -84,6 +84,7 @@ import { InisessionComponent } from './inisession/inisession.component';
     NoasignadosComponent,
     GotoindexComponent,
     InisessionComponent,
+    ContratoService
     
 
   ],
@@ -105,7 +106,8 @@ import { InisessionComponent } from './inisession/inisession.component';
       BancoService, 
       NominaService, 
       ComplementoService, 
-      ContratoService
+      ContratoService,
+      UrlConfigService
   ],
   bootstrap: [AppComponent]
 })

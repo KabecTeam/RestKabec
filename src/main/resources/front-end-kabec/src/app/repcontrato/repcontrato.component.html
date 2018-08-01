@@ -1,7 +1,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
 <div class="col-md-6" id="contrato">
 <h2>Reporte Estatus Contratos</h2>
-<td><button class="btn btn-danger" (click)="exportToExcel()">Excel</button></td>
+
 <!-- <td><button class="btn btn-danger" type="button" onclick="javascript:demoFromHTML()">PDF</button></td> -->
 <td><button class="btn btn-danger" type="button" (click)="downloadPDF()">PDF</button></td>
 <br>
@@ -17,47 +17,48 @@
 </div>
 <br>
 <div id="contrato">
-<table class="table table-striped" id="tab_contrato" *ngIf="contratos">
+<table class="table table-sm  table-responsive-sm table-responsive-md table-responsive-lg" id="tab_contrato" *ngIf="contratos">
   <colgroup>
             <col width="20%">
                 <col width="20%">
                     <col width="20%">
                         <col width="20%">
         </colgroup>
-  <thead>
+  <thead class="thead-ligth">
   <tr class='warning'>
-    <th>Nombre del Consultor</th>
-    <th>Apellido Paterno</th>
-    <th>Apellido Materno</th>
-    <th>Área</th>
-    <th>Lider</th>
-    <th>Anexo</th>
-    <th>Numero de Consultor</th>
-    <th>Contrato Nomina</th>
-    <th>Fecha Inicio Nomina</th>
-    <th>Fecha Fin Nomina</th>
-    <th>Empresa Complemento</th>
-    <th>Fecha Fin Complemento</th>
-    <th>Estatus</th>
+    <th scope="col" colspan="2">Nombre del Consultor</th>
+    <th scope="col" colspan="2">Apellido Paterno</th>
+    <th scope="col" colspan="2">Apellido Materno</th>
+    <th scope="col" colspan="2">Área</th>
+    <th scope="col" colspan="2">Lider</th>
+    <th scope="col" colspan="2">Anexo</th>
+    <th scope="col" colspan="2">Numero de Consultor</th>
+    <th scope="col" colspan="2">Contrato Nomina</th>
+    <th scope="col" colspan="2">Fecha Inicio Nomina</th>
+    <th scope="col" colspan="2">Fecha Fin Nomina</th>
+    <th scope="col" colspan="2">Empresa Complemento</th>
+    <th scope="col" colspan="2">Fecha Fin Complemento</th>
+    <th scope="col" colspan="2">Estatus</th>
 
 
   </tr>
   </thead>
   <tbody>
   <tr *ngFor="let contrato of contratos">
-    <td>{{contrato.nombre}}</td>
-    <td>{{contrato.apellidoPaterno}}</td>
-    <td>{{contrato.apellidoMaterno}}</td>
-    <td>{{contrato.area}}</td>
-    <td>{{contrato.lider}}</td>
-    <td>{{contrato.anexo}}</td>
-    <td>{{contrato.numConsultor}}</td>
-    <td>{{contrato.contratoNomina}}</td>
-    <td>{{contrato.fechininomin}}</td>
-    <td>{{contrato.fechfinnomin}}</td>
-    <td>{{contrato.empresaComplemento}}</td>
-    <td>{{contrato.fechinicomp}}</td>
-    <td>{{contrato.estatus}}</td>
+  
+    <th scope="row" colspan="2">{{contrato.nombre}}</th>
+    <td colspan="2">{{contrato.apellidoPaterno}}</td>
+    <td colspan="2">{{contrato.apellidoMaterno}}</td>
+    <td colspan="2">{{contrato.area}}</td>
+    <td colspan="2">{{contrato.lider}}</td>
+    <td colspan="2">{{contrato.anexo}}</td>
+    <td colspan="2">{{contrato.numConsultor}}</td>
+    <td colspan="2">{{contrato.contratoNomina}}</td>
+    <td colspan="2">{{contrato.fechininomin}}</td>
+    <td colspan="2">{{contrato.fechfinnomin}}</td>
+    <td colspan="2">{{contrato.empresaComplemento}}</td>
+    <td colspan="2">{{contrato.fechinicomp}}</td>
+    <td colspan="2">{{contrato.estatus}}</td>
 
   </tr>
   </tbody>

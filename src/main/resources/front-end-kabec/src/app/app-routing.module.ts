@@ -8,6 +8,7 @@ import {PagosAnexoComponent} from './pagos-anexo/pagos-anexo.component';
 import {AnexoComponent} from './anexo/anexo.component';
 import {AddAnexoComponent} from './add-anexo/add-anexo.component';
 import {DClienteComponent} from './d-cliente/d-cliente.component';
+import {AppComponent} from './app.component';
 //bryans
 import { UserComponent } from './user/user.component';
 import { AddUserComponent } from './user/add-user.component';
@@ -61,6 +62,7 @@ const routes: Routes = [
 	{ path:'nuevoconsultor', component:NuevoConsultor, pathMatch:'full'},
 	{ path: 'buscarconsultor', component: BuscarConsultor, pathMatch: 'full' },
 	{ path: 'consultarbajas', component: ConsultarBajas, pathMatch: 'full' },
+	{ path:'',component: AreaComponent}
 
 ];
 

@@ -10,7 +10,7 @@ import { LayoutService } from 'angular-admin-lte';
   styleUrls: ['./cliente.component.css']
 })
 export class ClienteComponent implements OnInit {
-	private clientes: Cliente[];
+	public clientes: Cliente[];
   constructor(private _router:Router, private _servicioCliente:ClienteService) { }
 
   ngOnInit() {

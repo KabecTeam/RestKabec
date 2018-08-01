@@ -44,7 +44,7 @@
 	<div class="form-group">
 		<label for="importeanexo" class="col-4 col-form-label" style="display: inline;">Cantidad Total del Anexo</label>
 		<div class="col-10">
-			<input class="col-mb-4 form-control"  type="text" name="importeanexo" [(ngModel)]="anexo.importe">	
+			<input class="col-mb-4 form-control"  type="text" name="importeanexo" [(ngModel)]="anexo.importeanexo">	
 		</div>
 
 	</div>
@@ -73,7 +73,7 @@
 	<div class="form-group">
 		<label for="cliente" class="col-4 col-form-label">Cliente</label>
 		<div class="col-10">
-			<select name="cliente" class="custom-select" [(ngModel)]="anexo.Cliente.idCliente" >
+			<select name="cliente" class="custom-select" [(ngModel)]="anexo.cliente.idCliente" >
 				<option [value]="cliente.idCliente" *ngFor="let cliente of clientes">{{cliente.nombreCliente}}</option>
 			</select>
 		</div>

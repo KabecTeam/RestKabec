@@ -4,6 +4,8 @@ import {PagosAnexos} from '../modelos/pagos-anexos';
 import {Observable} from 'rxjs/Observable';
 import {Anexo} from '../modelos/anexo';
 import {RegistroAsignacion} from '../modelos/registro-asignacion';
+import { UrlConfigService } from '../url-config.service';
+
 
 const httpOptions = {
 	headers: new HttpHeaders({ "Content-Type": "Application/Json" })
@@ -15,31 +17,31 @@ const httpOptions = {
 })
 export class PagosAnexosService {
 
-  constructor(private _http: HttpClient) { }
+  constructor(private _http: HttpClient, private urlConfig: UrlConfigService) { }
 	
-	private urlReportePagos = "http://localhost:8080/user-portal/";
+	//private urlReportePagos = "http://localhost:8080/user-portal/";
 
 	getReport(): Observable<any> {
-		return this._http.get<PagosAnexos>(this.urlReportePagos + 'showPagosAnexos');
+		return this._http.get<PagosAnexos>(this.urlConfig + 'showPagosAnexos');
 	}
 
 	getAllAnexos():Observable<any>{
-		return this._http.get<PagosAnexos>(this.urlReportePagos + 'showAnexos');
+		return this._http.get<PagosAnexos>(this.urlConfig + 'showAnexos');
 	}
 
 	addAnexo(anexo: Anexo){
-		return this._http.post(this.urlReportePagos + 'addAnexo', anexo, httpOptions);
+		return this._http.post(this.urlConfig + 'addAnexo', anexo, httpOptions);
 	}	
 
 	pagarAnexo(pagoAnexo: PagosAnexos ){
-		return this._http.post(this.urlReportePagos + 'addPagoAnexo', pagoAnexo, httpOptions);
+		return this._http.post(this.urlConfig + 'addPagoAnexo', pagoAnexo, httpOptions);
 	}
 
 	getAllRegistros():Observable<any>{
-		return this._http.get<RegistroAsignacion>(this.urlReportePagos + 'Asignacion');
+		return this._http.get<RegistroAsignacion>(this.urlConfig + 'Asignacion');
 	}
 
 	deleteanexo(anexo:Anexo){
-		return this._http.delete(this.urlReportePagos + 'delAnexo?idAnexo=' + anexo.idanexo)
+		return this._http.delete(this.urlConfig + 'delAnexo?idAnexo=' + anexo.idanexo)
 	}
 }

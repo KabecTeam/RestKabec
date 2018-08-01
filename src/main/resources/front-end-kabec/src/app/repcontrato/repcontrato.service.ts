@@ -2,6 +2,7 @@ import {Injectable,Pipe, PipeTransform} from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import * as FileSaver from 'file-saver';
 import * as XLSX from 'xlsx';
+import {UrlConfigService} from '../url-config.service';
 
 import { Contrato } from '../models/contrato.model';
 const EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=utf-8';
@@ -17,10 +18,10 @@ const httpOptions = {
 
 @Injectable()
 export class ContratoService{
+  
+  constructor(private http:HttpClient ,private urlConfig: UrlConfigService) {}
 
-  constructor(private http:HttpClient) {}
-
-  private contratoUrl = 'http://localhost:8080/user-portal/reportecontrato';
+  private contratoUrl = UrlConfigService+'reportecontrato';
 
   public getContrato() {
     return this.http.get<Contrato[]>(this.contratoUrl);

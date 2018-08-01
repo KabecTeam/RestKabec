@@ -1,28 +1,28 @@
       
-                  <table class="table-list">
-					<thead>
+                  <table class="table table-sm  table-responsive-sm table-responsive-md table-responsive-lg">
+					<thead class="thead-ligth">
 						<tr>
-							<th>Id</th>
-							<th>Nombre</th>
-							<th>Perfil</th>
-							<th>Cliente</th>
-							<th>Area</th>
-							<th>Gerente</th>
-							<th>Gerente Comercial</th>
-							<th>Lider</th>
+							<th scope="col" colspan="2">Id</th>
+							<th scope="col" colspan="2">Nombre</th>
+							<th scope="col" colspan="2">Perfil</th>
+							<th scope="col" colspan="2">Cliente</th>
+							<th scope="col" colspan="2">Area</th>
+							<th scope="col" colspan="2">Gerente</th>
+							<th scope="col" colspan="2">Gerente Comercial</th>
+							<th scope="col" colspan="2">Lider</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr *ngFor="let asignado of asignados;let registroAsignado of registrosAsignados">
+						<tr *ngFor="let asignado of asignaciones;let registroAsignado of registrosAsignados">
 							<div *ngIf="registroAsignado.persona.idpersona==asignado.idpersona">
-							<td>{{asignado.idpersona}}</td>
-							<td>{{asignado.nombre}} {{asignado.apellidoPaterno}} {{asignado.apellidoPaterno}}</td>
-							<td>{{registroAsignado.perfil}}</td>
-							<td>{{registroAsignado.idCliente}}</td>
-							<td>{{registroAsignado.idArea}}</td>
-							<td>{{registroAsignado.idGerente}}</td>
-							<td>{{registroAsignado.idGerenteComercial}}</td>
-							<td>{{registroAsignado.idLider}}</td>
+							<th scope="row" colspan="2">{{asignado.idpersona}}</th>
+							<td colspan="2">{{asignado.nombre}} {{asignado.apellidoPaterno}} {{asignado.apellidoPaterno}}</td>
+							<td colspan="2">{{registroAsignado.perfil}}</td>
+							<td colspan="2">{{registroAsignado.idCliente}}</td>
+							<td colspan="2">{{registroAsignado.idArea}}</td>
+							<td colspan="2">{{registroAsignado.idGerente}}</td>
+							<td colspan="2">{{registroAsignado.idGerenteComercial}}</td>
+							<td colspan="2">{{registroAsignado.idLider}}</td>
 
 							</div>
 						</tr>

@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { UrlConfigService } from '../url-config.service';
 
 import { Complemento } from '../models/complemento.model';
 
@@ -11,20 +12,20 @@ const httpOptions = {
 @Injectable()
 export class ComplementoService {
 
-  constructor(private http:HttpClient) {}
+  constructor(private http:HttpClient, private urlConfig:UrlConfigService) {}
 
-  private complementoUrl = 'http://localhost:8080/user-portal/complemento';
+  //private complementoUrl = 'http://localhost:8080/user-portal/complemento';
 
   public getComplemento() {
-    return this.http.get<Complemento[]>(this.complementoUrl);
+    return this.http.get<Complemento[]>(this.urlConfig+'complemento');
   }
 
   public deleteComplemento(complemento) {
-    return this.http.delete(this.complementoUrl + "/"+ complemento.empComplemento);
+    return this.http.delete(this.urlConfig+'complento' + "/"+ complemento.empComplemento);
   }
 
   public createComplemento(complemento) {
-    return this.http.post<Complemento>(this.complementoUrl, complemento);
+    return this.http.post<Complemento>(this.urlConfig+'complento', complemento);
   }
 
 }
